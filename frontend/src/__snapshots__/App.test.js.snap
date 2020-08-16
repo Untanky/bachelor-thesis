@@ -35,5 +35,14 @@ exports[`renders correctly 1`] = `
       </span>
     </div>
   </header>
+  <h1>
+    Toolbar
+  </h1>
+  <h1>
+    Blog
+  </h1>
+  <h1>
+    Footer
+  </h1>
 </div>
 `;
