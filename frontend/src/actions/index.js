@@ -6,5 +6,5 @@ export const selectLanguage = language => ({
 export const LanguageSelection = {
   JAVA_SPRING: 'JAVA_SPRING',
   JAVA_JAXRS: 'JAVA_JAXRS',
-  CSHARP_ASPNET: 'C#_ASP.NET',
+  CSHARP_ASPNET: 'CSHARP_ASPNET',
 }

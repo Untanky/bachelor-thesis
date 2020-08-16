@@ -16,8 +16,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Toolbar />
       <BrowserRouter>
+        <Toolbar />
         <Switch>
           <Route path="/post/create">
             <CreatePost />

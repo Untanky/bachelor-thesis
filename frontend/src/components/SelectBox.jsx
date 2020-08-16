@@ -1,8 +1,15 @@
 import React from 'react';
 
-const SelectBox = () => {
+import './SelectBox.scss';
+
+const SelectBox = ({ selectItems }) => {
+
   return (
-    <h1>Select Box</h1>
+    <select class="select-box">
+      { selectItems.map((selectItem) => 
+        (<option>{selectItem.text}</option>)
+      ) }
+    </select>
   )
 };
 
