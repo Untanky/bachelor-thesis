@@ -34,7 +34,7 @@ PostForm.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
   }),
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };
 
 PostForm.defaultProps = {

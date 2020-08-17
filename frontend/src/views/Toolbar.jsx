@@ -15,10 +15,9 @@ const Toolbar = () => {
   return (
     <div className="toolbar">
       <span className="right-align">
-        <ButtonLink 
-          to="/post/create"
-          text="Create post"
-        />
+        <ButtonLink to="/post/create">
+          Create post
+        </ButtonLink>
         <SelectBox selectItems={LanguageOptions} />
       </span>
     </div>

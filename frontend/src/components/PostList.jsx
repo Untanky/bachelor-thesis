@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Post from './Post';
 
@@ -15,6 +16,16 @@ const PostList = ({ posts }) => {
       )) }
     </div>
   )
+};
+
+PostList.propTypes = {
+  posts: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      description: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ).isRequired,
 };
 
 export default PostList;

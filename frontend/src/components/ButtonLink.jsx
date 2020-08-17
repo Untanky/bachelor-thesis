@@ -1,14 +1,28 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 
 import './ButtonLink.scss';
 
-const Button = ({ to, text }) => {
+const ButtonLink = ({ className, type, to, children }) => {
   return (
-    <Link className="button-link" to={to}>
-      {text}
+    <Link className={classnames('button', type, className)} to={to}>
+      {children}
     </Link>
   )
 };
 
-export default Button;
+ButtonLink.propTypes = {
+  className: PropTypes.string, 
+  type: PropTypes.string,
+  to: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
+
+ButtonLink.defaultProps = {
+  className: '',
+  type: '',
+};
+
+export default ButtonLink;

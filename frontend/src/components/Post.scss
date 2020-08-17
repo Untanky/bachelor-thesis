@@ -9,4 +9,14 @@
   .post-title {
     margin: 0;
   }
+
+  .button-container {
+    > *:not(:first-child)  {
+      margin-left: 0.5em;
+    }
+
+    .delete-link {
+      font-size: 16px;
+    }
+  }
 }

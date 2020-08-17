@@ -1,11 +1,14 @@
 import React from 'react';
+import PropTypes, { string } from 'prop-types';
 
 import './SelectBox.scss';
 
-const SelectBox = ({ selectItems }) => {
-
+const SelectBox = ({ selectItems, onChange }) => {
   return (
-    <select className="select-box">
+    <select 
+      className="select-box"
+      onChange={onChange}
+    >
       { selectItems.map((selectItem) => 
           <option 
             key={Math.random()}
@@ -17,5 +20,15 @@ const SelectBox = ({ selectItems }) => {
     </select>
   )
 };
+
+SelectBox.propTypes = {
+  selectItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.string,
+      test: PropTypes.string,
+    })
+  ).isRequired,
+  onChange: PropTypes.func.isRequired,
+}
 
 export default SelectBox;

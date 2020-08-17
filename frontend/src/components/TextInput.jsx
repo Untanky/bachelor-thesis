@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './TextInput.scss';
 
@@ -23,6 +24,19 @@ const TextInput = ({ label, placeholder, initialValue, onChange }) => {
       />
     </div>
   );
+};
+
+TextInput.propTypes = {
+  label: PropTypes.string,
+  placeholder: PropTypes.string,
+  initialValue: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
+
+TextInput.defaultProps = {
+  label: '',
+  placeholder: '',
+  initialValue: '',
 };
 
 export default TextInput;
