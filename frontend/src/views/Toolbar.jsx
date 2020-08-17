@@ -13,8 +13,8 @@ const LanguageOptions = [
 
 const Toolbar = () => {
   return (
-    <div class="toolbar">
-      <span class="right-align">
+    <div className="toolbar">
+      <span className="right-align">
         <ButtonLink 
           to="/post/create"
           text="Create post"

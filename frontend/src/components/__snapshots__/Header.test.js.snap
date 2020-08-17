@@ -2,13 +2,13 @@
 
 exports[`renders correctly 1`] = `
 <header
-  class="header"
+  className="header"
 >
   <h1>
     Web­schnitt­stellen - Ver­gleich von ver­schie­denen Pro­gram­mier­spra­chen und Frame­works zur Er­stel­lung von REST-Schnitts­tellen
   </h1>
   <div
-    class="additional-info"
+    className="additional-info"
   >
     <b>
       Bachelorarbeit von 

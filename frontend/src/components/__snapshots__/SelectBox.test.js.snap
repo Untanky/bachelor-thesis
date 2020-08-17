@@ -1,7 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<h1>
-  Select Box
-</h1>
+<select
+  className="select-box"
+>
+  <option
+    value={1}
+  >
+    One
+  </option>
+  <option
+    value={2}
+  >
+    Two
+  </option>
+  <option
+    value={3}
+  >
+    Three
+  </option>
+</select>
 `;

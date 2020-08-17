@@ -1,8 +1,19 @@
 import React from 'react';
 
-const PostList = () => {
+import Post from './Post';
+
+import './PostList.scss';
+
+const PostList = ({ posts }) => {
   return (
-    <h1>Post List</h1>
+    <div className="post-list">
+      { posts.map((post) => (
+        <Post 
+          key={Math.random()}
+          post={post}
+        />
+      )) }
+    </div>
   )
 };
 

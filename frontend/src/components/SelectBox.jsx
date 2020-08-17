@@ -5,9 +5,14 @@ import './SelectBox.scss';
 const SelectBox = ({ selectItems }) => {
 
   return (
-    <select class="select-box">
+    <select className="select-box">
       { selectItems.map((selectItem) => 
-        (<option>{selectItem.text}</option>)
+          <option 
+            key={Math.random()}
+            value={selectItem.value}
+          >
+            {selectItem.text}
+          </option>
       ) }
     </select>
   )

@@ -1,7 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<h1>
-  Blog
-</h1>
+<div
+  className="blog"
+>
+  <div
+    className="post-list"
+  >
+    <div
+      className="post"
+    >
+      <h2
+        className="post-title"
+      >
+        Test title
+      </h2>
+      <p
+        className="post-description"
+      >
+        This is the description for the test post. It contains vital data for the post and puts it into context.
+      </p>
+      <a
+        className="button-link"
+        href="/post/edit/1"
+        onClick={[Function]}
+      >
+        Edit post
+      </a>
+    </div>
+    <div
+      className="post"
+    >
+      <h2
+        className="post-title"
+      >
+        My newest post
+      </h2>
+      <p
+        className="post-description"
+      >
+        This is the description for the test post. It contains vital data for the post and puts it into context.
+      </p>
+      <a
+        className="button-link"
+        href="/post/edit/2"
+        onClick={[Function]}
+      >
+        Edit post
+      </a>
+    </div>
+    <div
+      className="post"
+    >
+      <h2
+        className="post-title"
+      >
+        Post with some content
+      </h2>
+      <p
+        className="post-description"
+      >
+        This is the description for the test post. It contains vital data for the post and puts it into context.
+      </p>
+      <a
+        className="button-link"
+        href="/post/edit/3"
+        onClick={[Function]}
+      >
+        Edit post
+      </a>
+    </div>
+  </div>
+</div>
 `;

@@ -1,8 +1,20 @@
 import React from 'react';
 
-const Post = () => {
+import ButtonLink from './ButtonLink';
+
+import './Post.scss';
+
+const Post = ( { post } ) => {
   return (
-    <h1>Post</h1>
+    <div className="post">
+      <h2 className="post-title">{post.title}</h2>
+      <p className="post-description">{post.description}</p>
+      <ButtonLink
+        className="edit-link"
+        to={`/post/edit/${post.id}`}
+        text="Edit post"
+      />
+    </div>
   )
 };
 
