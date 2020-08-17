@@ -1,0 +1,22 @@
+@import "../theme";
+
+.text-input {
+  .label {
+    display: block;
+    text-align: left;
+    padding: 0 14px;
+  }
+
+  .input-field {
+    box-sizing: content-box;
+    width: 100%;
+    outline: none;
+    padding: 0.5em 1em;
+    border-radius: 2em;
+    border: 1px solid #222;
+
+    &:active, &:focus {
+      border-color: $htw-green;
+    }
+  }
+}

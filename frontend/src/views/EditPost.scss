@@ -1,0 +1,16 @@
+.edit-post {
+  max-width: 800px;
+  text-align: left;
+  margin: 0 auto;
+
+  .title {
+    text-align: center;
+  }
+  
+  .button-container {
+    margin-top: 0.5em;
+    .button {
+      margin: 0 0.5em;
+    }
+  }
+}
