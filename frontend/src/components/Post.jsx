@@ -7,10 +7,6 @@ import ButtonLink from './ButtonLink';
 import './Post.scss';
 
 const Post = ( { post } ) => {
-  const deleteClicked = () => {
-
-  }
-
   return (
     <div className="post">
       <h2 className="post-title">{post.title}</h2>
@@ -25,7 +21,7 @@ const Post = ( { post } ) => {
         <Button
           className="delete-link"
           type="delete"
-          onClick={deleteClicked}
+          onClick={post.deleteClicked}
         >
           Delete post
         </Button>
@@ -39,6 +35,7 @@ Post.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     id: PropTypes.number,
+    deleteClicked: PropTypes.func,
   }).isRequired,
 };
 

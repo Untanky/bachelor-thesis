@@ -14,9 +14,18 @@ const Blog = () => {
     .then((res) => setPostList(res.data))
     .catch((reason) => console.log(reason));
 
+    const posts = postList.map((post) => ({
+      ...post,
+      deleteClicked: () => {
+        Axios.delete(`http:localhost:${port}/api/blog/post/${post.id}`)
+          .then((res) => setPostList([]))
+          .catch((reason) => console.log(reason));
+      }
+    }))
+
   return (
     <div className="blog">
-      <PostList posts={postList} />
+      <PostList posts={posts} />
     </div>
   )
 };
