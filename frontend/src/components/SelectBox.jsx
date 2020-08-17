@@ -7,7 +7,7 @@ const SelectBox = ({ selectItems, onChange }) => {
   return (
     <select 
       className="select-box"
-      onChange={onChange}
+      onChange={(evt) => onChange(evt.target.value)}
     >
       { selectItems.map((selectItem) => 
           <option 
