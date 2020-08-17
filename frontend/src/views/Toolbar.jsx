@@ -9,7 +9,6 @@ import './Toolbar.scss';
 const Toolbar = () => {
   return (
     <div className="toolbar">
-      {port}
       <span className="right-align">
         <ButtonLink to="/post/create">
           Create post

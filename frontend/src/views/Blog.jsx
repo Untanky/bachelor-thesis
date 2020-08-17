@@ -1,33 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import Axios from 'axios';
 
 import PostList from '../components/PostList';
 
 import './Blog.scss';
 
 const Blog = () => {
-  const postList = [
-    {
-      id: '1',
-      title: 'Test title',
-      description: 'This is the description for the test post. It contains vital data for the post and puts it into context.',
-      numberOfComments: 6,
-      url: 'post/1'
-    },
-    {
-      id: '2',
-      title: 'My newest post',
-      description: 'This is the description for the test post. It contains vital data for the post and puts it into context.',
-      numberOfComments: 0,
-      url: 'post/2'
-    },
-    {
-      id: '3',
-      title: 'Post with some content',
-      description: 'This is the description for the test post. It contains vital data for the post and puts it into context.',
-      numberOfComments: 200,
-      url: 'post/3'
-    },
-  ];
+  const [postList, setPostList] = useState([]);
+  const port = useSelector(state => state.languageSelector.port);
+
+  Axios.get(`http:localhost:${port}/api/blog/post`)
+    .then((res) => setPostList(res.data))
+    .catch((reason) => console.log(reason));
 
   return (
     <div className="blog">
