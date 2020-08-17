@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with initial value 1`] = `
+<div
+  className="text-input"
+>
+  <label
+    className="label"
+    htmlFor={0.5}
+  >
+    Test label
+  </label>
+  <input
+    className="input-field"
+    defaultValue="Initial value"
+    id={0.5}
+    onChange={[Function]}
+    placeholder="Placeholder"
+    type="text"
+  />
+</div>
+`;
+
+exports[`renders correctly without initial value 1`] = `
+<div
+  className="text-input"
+>
+  <label
+    className="label"
+    htmlFor={0.5}
+  >
+    Test label
+  </label>
+  <input
+    className="input-field"
+    id={0.5}
+    onChange={[Function]}
+    placeholder="Placeholder"
+    type="text"
+  />
+</div>
+`;

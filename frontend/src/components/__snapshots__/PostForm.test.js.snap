@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with initial state 1`] = `
+<form
+  className="post-form"
+>
+  <div
+    className="text-input"
+  >
+    <label
+      className="label"
+      htmlFor={0.5}
+    >
+      Title
+    </label>
+    <input
+      className="input-field"
+      defaultValue="Test title"
+      id={0.5}
+      onChange={[Function]}
+      placeholder="Title"
+      type="text"
+    />
+  </div>
+  <div
+    className="text-input"
+  >
+    <label
+      className="label"
+      htmlFor={0.5}
+    >
+      Description
+    </label>
+    <input
+      className="input-field"
+      defaultValue="Description might be longer than the title and contain more data"
+      id={0.5}
+      onChange={[Function]}
+      placeholder="Description"
+      type="text"
+    />
+  </div>
+</form>
+`;
+
+exports[`renders correctly without initial state 1`] = `
+<form
+  className="post-form"
+>
+  <div
+    className="text-input"
+  >
+    <label
+      className="label"
+      htmlFor={0.5}
+    >
+      Title
+    </label>
+    <input
+      className="input-field"
+      defaultValue=""
+      id={0.5}
+      onChange={[Function]}
+      placeholder="Title"
+      type="text"
+    />
+  </div>
+  <div
+    className="text-input"
+  >
+    <label
+      className="label"
+      htmlFor={0.5}
+    >
+      Description
+    </label>
+    <input
+      className="input-field"
+      defaultValue=""
+      id={0.5}
+      onChange={[Function]}
+      placeholder="Description"
+      type="text"
+    />
+  </div>
+</form>
+`;

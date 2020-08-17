@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders cancel button correctly 1`] = `
+<button
+  className="button cancel"
+/>
+`;
+
+exports[`renders delete button correctly 1`] = `
+<button
+  className="button"
+/>
+`;
+
+exports[`renders normal button correctly 1`] = `
+<button
+  className="button"
+/>
+`;
