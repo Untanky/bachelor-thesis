@@ -11,6 +11,10 @@
     margin-top: 0.5em;
     .button {
       margin: 0 0.5em;
+
+      &.edit-button {
+        font-size: 16px;
+      }
     }
   }
 }

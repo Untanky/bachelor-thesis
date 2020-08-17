@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import Axios from 'axios';
 
 import PostForm from '../components/PostForm';
+import ButtonLink from '../components/ButtonLink';
 import Button from '../components/Button';
 
 import './CreatePost.scss';
 
 const CreatePost = () => {
+  const port = useSelector(state => state.languageSelector.port);
+  const history = useHistory();
   const [formData, setFormData] = useState({});
 
-  const onChange = (key, value) => {
+  const changeForm = (key, value) => {
     setFormData({
       ...formData,
       [key]: value,
     });
   };
+
+  const createClicked = () => {
+    Axios.post(`http://localhost:${port}/api/blog/post`, formData)
+      .then(() => history.push('/'))
+      .catch((reason) => console.log(reason));
+  }
 
   return (
     <div className="create-post">
@@ -21,13 +33,19 @@ const CreatePost = () => {
         Create post
       </h1>
       <PostForm 
-        onChange={onChange}
+        onChange={changeForm}
       />
       <div className="button-container">
-        <Button
+        <ButtonLink
           type="cancel"
-        >Cancel</Button>
-        <Button>Create</Button>
+          to="/"
+        >Cancel</ButtonLink>
+        <Button 
+          className="create-button"
+          onClick={createClicked}
+        >
+          Create
+        </Button>
       </div>
     </div>
   )
