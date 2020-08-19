@@ -8,6 +8,10 @@ jest.mock('react-router', () => ({
   useParams: jest.fn().mockReturnValue({ postId: 3 }),
 }));
 
+jest.mock('react-redux', () => ({
+  useSelector: jest.fn().mockReturnValue({ postId: 8080 }),
+}));w
+
 it('renders correctly', () => {
   const tree = renderer
     .create(<EditPost />)

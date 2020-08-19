@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 
 global.Math.random = () => 0.5;
 
+const onChange = () => {};
+
 it('renders correctly with initial value', () => {
   const tree = renderer
     .create(
@@ -11,6 +13,7 @@ it('renders correctly with initial value', () => {
         label="Test label"
         placeholder="Placeholder"
         initialValue="Initial value"
+        onChange={onChange}
       />
     )
     .toJSON();
@@ -24,6 +27,7 @@ it('renders correctly without initial value', () => {
       <TextInput
         label="Test label"
         placeholder="Placeholder"
+        onChange={onChange}
       />
     )
     .toJSON();
