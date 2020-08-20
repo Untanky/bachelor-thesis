@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "1.0.0"
+  version: "1.1.0"
   title: "Blogging prototype"
   contact:
     email: "s0563265@htw-berlin.de"
@@ -13,8 +13,6 @@ basePath: "/api/blog"
 tags:
   - name: "blog"
     description: "Access, create and modify blog posts."
-  - name: "comments"
-    description: "create and modify comments on blog posts."
 schemes:
   - "http"
 paths:
@@ -34,7 +32,16 @@ paths:
             items:
               type: object
               allOf: 
-              - $ref: "#/definitions/PostWithId"
+              - type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                    example: 918273645
+                  url:
+                    type: string
+                    example: "/post/918273645"
+              - $ref: "#/definitions/Post"
     post:
       tags:
       - "blog"
@@ -57,43 +64,6 @@ paths:
           schema:
             $ref: "#/definitions/Error"
   /post/{postId}:
-    get:
-      tags:
-      - "blog"
-      summary: "Retrieve a specific post"
-      description: "Retrieves a specific post from the system. The data transmitted also contains the comments to that post. The response is in JSON format."
-      produces:
-      - application/json
-      parameters:
-      - name: "postId"
-        in: "path"
-        description: "ID of post to return"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-          schema:
-            type: object
-            allOf:
-            - $ref: "#/definitions/PostWithId"
-            - type: object
-              properties:
-                comments:
-                  type: array
-                  items:
-                    type: object
-                    allOf: 
-                    - $ref: "#/definitions/CommentWithId"
-        "400":
-          description: "request data not correct"
-          schema:
-            $ref: "#/definitions/Error"
-        "404":
-          description: "post not found"
-          schema:
-            $ref: "#/definitions/Error"
     put:
       tags:
       - "blog"
@@ -156,103 +126,6 @@ paths:
           description: "post not found"
           schema:
             $ref: "#/definitions/Error"
-  /post/{postId}/comment:
-    post:
-      tags:
-      - "comments"
-      summary: "Create a comment for the specified post"
-      description: "Create a new comment for the specified post. The request body must be JSON format and must not contain an id"
-      parameters:
-      - name: "postId"
-        in: "path"
-        description: "ID of post"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "body"
-        in: "body"
-        description: "Comment to attach to post"
-        required: true
-        schema:
-          $ref: "#/definitions/Comment"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "request data not correct"
-          schema:
-            $ref: "#/definitions/Error"
-        "404":
-          description: "post not found"
-          schema:
-            $ref: "#/definitions/Error"
-  /post/{postId}/comment/{commentId}:
-    put:
-      tags:
-      - "comments"
-      summary: "Update the specified comment for the specified post"
-      description: "Update the specified comment for the specified post. The request body must be JSON format and must contain an id that matches the commend id in the request path."
-      consumes:
-      - application/json
-      parameters:
-      - name: "postId"
-        in: "path"
-        description: "ID of post"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "commentId"
-        in: "path"
-        description: "ID of comment to update"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "body"
-        in: "body"
-        description: "Comment to attach to post"
-        required: true
-        schema:
-          $ref: "#/definitions/CommentWithId"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "request data not correct"
-          schema:
-            $ref: "#/definitions/Error"
-        "404":
-          description: "post not found"
-          schema:
-            $ref: "#/definitions/Error"
-    delete:
-      tags:
-      - "comments"
-      summary: "Deletes the specified comment for the specified post"
-      description: "Deletes the specified comment for the specified post."
-      parameters:
-      - name: "postId"
-        in: "path"
-        description: "ID of post"
-        required: true
-        type: "integer"
-        format: "int64"
-      - name: "commentId"
-        in: "path"
-        description: "ID of comment to update"
-        required: true
-        type: "integer"
-        format: "int64"
-      responses:
-        "200":
-          description: "successful operation"
-        "400":
-          description: "request data not correct"
-          schema:
-            $ref: "#/definitions/Error"
-        "404":
-          description: "post not found"
-          schema:
-            $ref: "#/definitions/Error"
 definitions:
   Post:
     type: object
@@ -263,46 +136,6 @@ definitions:
       description:
         type: string
         example: "Test Description; might be a really long text"
-      numberOfComments:
-        type: integer
-        format: int64
-        example: 6
-  PostWithId:
-    type: object
-    allOf: 
-    - $ref: "#/definitions/Post"
-    - type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 918273645
-        url:
-          type: string
-          example: "/post/918273645"
-  Comment: 
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-        example: 912912
-      text:
-        type: string
-        example: "Example comment"
-      url:
-        type: string
-        example: "/post/918273645/comment/912912"
-  CommentWithId: 
-    type: object
-    allOf: 
-    - $ref: "#/definitions/Post"
-    - type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-          example: 918273645
   Error:
     type: object
     properties:
