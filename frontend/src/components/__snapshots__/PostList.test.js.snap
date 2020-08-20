@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="post-list"
+>
+  <div
+    className="post"
+  >
+    <h2
+      className="post-title"
+    >
+      Test title
+    </h2>
+    <p
+      className="post-description"
+    >
+      This is the description for the test post. It contains vital data for the post and puts it into context.
+    </p>
+    <div
+      className="button-container"
+    >
+      <a
+        className="button edit-link"
+        href="/post/edit/1"
+        onClick={[Function]}
+      >
+        Edit Post
+      </a>
+      <button
+        className="button delete delete-link"
+      >
+        Delete post
+      </button>
+    </div>
+  </div>
+  <div
+    className="post"
+  >
+    <h2
+      className="post-title"
+    >
+      My newest post
+    </h2>
+    <p
+      className="post-description"
+    >
+      This is the description for the test post. It contains vital data for the post and puts it into context.
+    </p>
+    <div
+      className="button-container"
+    >
+      <a
+        className="button edit-link"
+        href="/post/edit/2"
+        onClick={[Function]}
+      >
+        Edit Post
+      </a>
+      <button
+        className="button delete delete-link"
+      >
+        Delete post
+      </button>
+    </div>
+  </div>
+  <div
+    className="post"
+  >
+    <h2
+      className="post-title"
+    >
+      Post with some content
+    </h2>
+    <p
+      className="post-description"
+    >
+      This is the description for the test post. It contains vital data for the post and puts it into context.
+    </p>
+    <div
+      className="button-container"
+    >
+      <a
+        className="button edit-link"
+        href="/post/edit/3"
+        onClick={[Function]}
+      >
+        Edit Post
+      </a>
+      <button
+        className="button delete delete-link"
+      >
+        Delete post
+      </button>
+    </div>
+  </div>
+</div>
+`;

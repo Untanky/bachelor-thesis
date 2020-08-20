@@ -1,0 +1,21 @@
+@import "../theme";
+
+.header {
+  max-width: 1200px;
+  padding: 1em 2em;
+  border-bottom: 4px solid $htw-green;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .additional-info {
+    text-align: left;
+
+    > * {
+      display: block;
+      padding: 0.25em 0;
+    }
+  }
+}

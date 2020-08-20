@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders cancel button correctly 1`] = `
+<button
+  className="button cancel"
+  onClick={[Function]}
+>
+  Cancel
+</button>
+`;
+
+exports[`renders delete button correctly 1`] = `
+<button
+  className="button delete"
+  onClick={[Function]}
+>
+  Delete
+</button>
+`;
+
+exports[`renders normal button correctly 1`] = `
+<button
+  className="button default"
+  onClick={[Function]}
+>
+  Confirm
+</button>
+`;

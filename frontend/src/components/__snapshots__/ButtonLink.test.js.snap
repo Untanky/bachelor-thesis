@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders cancel button linku correctly 1`] = `
+<a
+  className="button cancel"
+  href="/home"
+  onClick={[Function]}
+>
+  Cancel
+</a>
+`;
+
+exports[`renders default correctly 1`] = `
+<a
+  className="button"
+  href="/home"
+  onClick={[Function]}
+>
+  Home
+</a>
+`;
+
+exports[`renders delete button link correctly 1`] = `
+<a
+  className="button delete"
+  href="/home"
+  onClick={[Function]}
+>
+  Home
+</a>
+`;

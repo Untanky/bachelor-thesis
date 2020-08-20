@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="edit-post"
+>
+  <h1
+    className="title"
+  >
+    Edit Post 
+    3
+  </h1>
+  <form
+    className="post-form"
+  >
+    <div
+      className="text-input"
+    >
+      <label
+        className="label"
+        htmlFor={0.5}
+      >
+        Title
+      </label>
+      <input
+        className="input-field"
+        defaultValue="Test title"
+        id={0.5}
+        onChange={[Function]}
+        placeholder="Title"
+        type="text"
+      />
+    </div>
+    <div
+      className="text-input"
+    >
+      <label
+        className="label"
+        htmlFor={0.5}
+      >
+        Description
+      </label>
+      <input
+        className="input-field"
+        defaultValue="long description, bla bla blubb"
+        id={0.5}
+        onChange={[Function]}
+        placeholder="Description"
+        type="text"
+      />
+    </div>
+  </form>
+  <div
+    className="button-container"
+  >
+    <button
+      className="button cancel"
+    >
+      Cancel
+    </button>
+    <button
+      className="button"
+    >
+      Confirm
+    </button>
+  </div>
+</div>
+`;

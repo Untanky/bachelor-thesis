@@ -1,0 +1,23 @@
+@import '../theme';
+
+.select-box {
+  background-color: $htw-green;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  border: none;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.25s ease-in-out;
+  }
+
+  option {
+
+  }
+}

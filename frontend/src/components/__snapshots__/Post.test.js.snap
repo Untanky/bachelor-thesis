@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="post"
+>
+  <h2
+    className="post-title"
+  >
+    Test title
+  </h2>
+  <p
+    className="post-description"
+  >
+    This is the description for the test post. It contains vital data for the post and puts it into context.
+  </p>
+  <div
+    className="button-container"
+  >
+    <a
+      className="button edit-link"
+      href="/post/edit/1"
+      onClick={[Function]}
+    >
+      Edit Post
+    </a>
+    <button
+      className="button delete delete-link"
+      onClick={[Function]}
+    >
+      Delete post
+    </button>
+  </div>
+</div>
+`;

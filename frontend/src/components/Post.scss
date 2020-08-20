@@ -1,0 +1,22 @@
+@import "../theme";
+
+.post {
+  text-align: left;
+  padding: 2em;
+  border: 2px solid $htw-green;
+  border-radius: 2em;
+
+  .post-title {
+    margin: 0;
+  }
+
+  .button-container {
+    > *:not(:first-child)  {
+      margin-left: 0.5em;
+    }
+
+    .delete-link {
+      font-size: 16px;
+    }
+  }
+}
