@@ -17,15 +17,8 @@ public class Post {
     @Column(name = "description")
     private String description;
 
-    private String url;
-
-
     public long getId() {
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getTitle() {
@@ -46,5 +39,17 @@ public class Post {
 
     public String getUrl() {
         return String.format("/post/%d", id);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Post post = (Post) o;
+
+        if (id != post.id) return false;
+        if (!title.equals(post.title)) return false;
+        return description.equals(post.description);
     }
 }
