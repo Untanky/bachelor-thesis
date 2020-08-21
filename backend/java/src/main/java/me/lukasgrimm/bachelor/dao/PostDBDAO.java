@@ -2,8 +2,9 @@ package me.lukasgrimm.bachelor.dao;
 
 import me.lukasgrimm.bachelor.models.Post;
 
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import java.util.ArrayList;
+import javax.persistence.Query;
 import java.util.List;
 
 public class PostDBDAO implements PostDAO {
@@ -15,7 +16,17 @@ public class PostDBDAO implements PostDAO {
     }
 
     public List<Post> findAll() {
-        return new ArrayList<>();
+
+        EntityManager entityManager = null;
+        try {
+            entityManager = entityManagerFactory.createEntityManager();
+            Query query = entityManager.createQuery("SELECT p FROM Post p");
+            return query.getResultList();
+        } finally {
+            if (entityManager != null) {
+                entityManager.close();
+            }
+        }
     }
 
     public void create(Post post) {
