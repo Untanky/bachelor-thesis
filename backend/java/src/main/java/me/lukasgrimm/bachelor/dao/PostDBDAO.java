@@ -1,21 +1,21 @@
 package me.lukasgrimm.bachelor.dao;
 
 import me.lukasgrimm.bachelor.models.Post;
-import org.hibernate.SessionFactory;
 
-import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostDBDAO implements PostDAO {
 
-    private EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
 
-    public PostDBDAO(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    public PostDBDAO(EntityManagerFactory entityManagerFactory) {
+        this.entityManagerFactory = entityManagerFactory;
     }
 
     public List<Post> findAll() {
-        return null;
+        return new ArrayList<>();
     }
 
     public void create(Post post) {
@@ -26,7 +26,7 @@ public class PostDBDAO implements PostDAO {
 
     }
 
-    public void delete(Post post) {
+    public void delete(long postId) {
 
     }
 }
