@@ -8,7 +8,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id")
+    @Column(name = "id", unique = true)
     private long id;
 
     @Column(name = "title")
