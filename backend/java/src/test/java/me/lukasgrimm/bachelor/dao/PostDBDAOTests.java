@@ -6,10 +6,14 @@ import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.accessibility.AccessibilityProvider;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class PostDBDAOTests {
@@ -92,6 +96,25 @@ public class PostDBDAOTests {
     }
 
     @Test
+    void createShouldThrowIllegalArgumentExceptionWhenElementNotFound() throws Exception {
+
+        final long POST_ID = 1;
+
+        Assumptions.assumeFalse(post1.getId() == POST_ID);
+        Assumptions.assumeFalse(post2.getId() == POST_ID);
+        Assumptions.assumeFalse(post3.getId() == POST_ID);
+
+        Post createPost = new Post();
+        createPost.setTitle("Test");
+        createPost.setDescription("Description");
+        Field idField = createPost.getClass().getDeclaredField("id");
+        idField.setAccessible(true);
+        idField.setLong(createPost, POST_ID);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> dao.create(createPost));
+    }
+
+    @Test
     void updateShouldUpdateRecipeInDB() {
 
         final long POST_ID = post3.getId();
@@ -108,6 +131,25 @@ public class PostDBDAOTests {
         Assertions.assertEquals(expectedPost.getId(), actualPost.getId());
         Assertions.assertEquals(expectedPost.getTitle(), actualPost.getTitle());
         Assertions.assertEquals(expectedPost.getDescription(), actualPost.getDescription());
+    }
+
+    @Test
+    void updateShouldThrowIllegalArgumentExceptionWhenElementNotFound() throws Exception {
+
+        final long POST_ID = 1251252142;
+
+        Assumptions.assumeFalse(post1.getId() == POST_ID);
+        Assumptions.assumeFalse(post2.getId() == POST_ID);
+        Assumptions.assumeFalse(post3.getId() == POST_ID);
+
+        Post updatePost = new Post();
+        updatePost.setTitle("Test");
+        updatePost.setDescription("Description");
+        Field idField = updatePost.getClass().getDeclaredField("id");
+        idField.setAccessible(true);
+        idField.setLong(updatePost, POST_ID);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> dao.update(updatePost));
     }
 
     @Test
