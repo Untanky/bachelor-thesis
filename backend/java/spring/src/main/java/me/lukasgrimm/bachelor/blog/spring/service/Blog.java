@@ -16,7 +16,7 @@ public class Blog {
 
     @GetMapping("/")
     List<Post> fetchAllPosts() {
-
+        return dao.findAll();
     }
 
     @PostMapping("/")

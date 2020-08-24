@@ -15,10 +15,6 @@
         <java.version>14</java.version>
     </properties>
 
-<!--    <modules>-->
-<!--        <module>spring</module>-->
-<!--    </modules>-->
-
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
