@@ -1,4 +1,4 @@
-package me.lukasgrimm.bachelor.jaxrs.blog;
+package me.lukasgrimm.bachelor.blog.jaxrs;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
