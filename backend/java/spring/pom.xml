@@ -11,7 +11,7 @@
     <groupId>me.lukasgrimm.bachelor</groupId>
     <artifactId>spring-blog</artifactId>
     <version>0.1.0</version>
-    <name>Bachelor Thesis: Spring: Blog</name>
+    <name>Bachelor Thesis: Java: Spring: Blog</name>
     <description>A blog prototype to benchmark the Spring framework</description>
 
     <properties>
@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>me.lukasgrimm</groupId>
+            <artifactId>bachelor</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

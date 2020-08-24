@@ -7,12 +7,17 @@
     <groupId>me.lukasgrimm</groupId>
     <artifactId>bachelor</artifactId>
     <version>0.1.0</version>
+    <packaging>jar</packaging>
+    <name>Bachelor Thesis: Java: Data Access</name>
+    <description>Access the database with Java programming language</description>
 
     <properties>
         <java.version>14</java.version>
     </properties>
 
-
+<!--    <modules>-->
+<!--        <module>spring</module>-->
+<!--    </modules>-->
 
     <dependencies>
         <dependency>
