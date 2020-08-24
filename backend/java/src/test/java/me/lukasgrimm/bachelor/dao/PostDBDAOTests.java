@@ -80,8 +80,10 @@ public class PostDBDAOTests {
 
         dao.create(expectedPost);
 
+        System.out.println(expectedPost.getId());
+
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        Post actualPost = entityManager.find(Post.class, expectedPost.getId());
+        Post actualPost = entityManager.<Post>find(Post.class, expectedPost.getId());
 
         Assertions.assertEquals(expectedPost.getId(), actualPost.getId());
         Assertions.assertEquals(expectedPost.getTitle(), actualPost.getTitle());
@@ -91,7 +93,7 @@ public class PostDBDAOTests {
     @Test
     void updateShouldUpdateRecipeInDB() {
 
-        final long POST_ID = 3;
+        final long POST_ID = post3.getId();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         Post expectedPost = entityManager.find(Post.class, POST_ID);
@@ -110,7 +112,7 @@ public class PostDBDAOTests {
     @Test
     void deleteShouldDeleteRecipeInDB() {
 
-        final long POST_ID = 3;
+        final long POST_ID = post3.getId();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         dao.delete(POST_ID);
