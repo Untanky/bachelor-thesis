@@ -2,6 +2,7 @@ package me.lukasgrimm.bachelor.dao;
 
 import me.lukasgrimm.bachelor.models.Post;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -120,5 +121,17 @@ public class PostDBDAOTests {
         Post actualPost = entityManager.find(Post.class, POST_ID);
 
         Assertions.assertNull(actualPost);
+    }
+
+    @Test
+    void deleteShouldThrowIllegalArgumentExceptionWhenElementNotFound() {
+
+        final long POST_ID = 1251252142;
+
+        Assumptions.assumeFalse(post1.getId() == POST_ID);
+        Assumptions.assumeFalse(post2.getId() == POST_ID);
+        Assumptions.assumeFalse(post3.getId() == POST_ID);
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> dao.delete(POST_ID));
     }
 }

@@ -1,5 +1,6 @@
 package me.lukasgrimm.bachelor.dao;
 
+import javassist.NotFoundException;
 import me.lukasgrimm.bachelor.models.Post;
 
 import javax.persistence.EntityManager;
@@ -66,6 +67,11 @@ public class PostDBDAO implements PostDAO {
             entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
             Post post = entityManager.find(Post.class, postId);
+
+            if (post == null) {
+                throw new IllegalArgumentException("post not found");
+            }
+
             entityManager.remove(post);
             entityManager.getTransaction().commit();
         } finally {
