@@ -22,7 +22,7 @@
         <dependency>
             <groupId>me.lukasgrimm</groupId>
             <artifactId>bachelor</artifactId>
-            <version>0.1.0</version>
+            <version>0.1.0.1</version>
         </dependency>
 
         <dependency>

@@ -6,7 +6,7 @@
 
     <groupId>me.lukasgrimm</groupId>
     <artifactId>bachelor</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0.1</version>
     <packaging>jar</packaging>
     <name>Bachelor Thesis: Java: Data Access</name>
     <description>Access the database with Java programming language</description>
