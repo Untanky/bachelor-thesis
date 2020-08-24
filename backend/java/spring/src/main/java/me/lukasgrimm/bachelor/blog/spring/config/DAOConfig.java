@@ -8,7 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 @Configuration
-public class Config {
+public class DAOConfig {
 
     @Bean
     public PostDBDAO dao() {
