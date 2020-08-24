@@ -1,10 +1,10 @@
 package me.lukasgrimm.bachelor.dao;
 
-import javassist.NotFoundException;
 import me.lukasgrimm.bachelor.models.Post;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -38,6 +38,8 @@ public class PostDBDAO implements PostDAO {
             entityManager.getTransaction().begin();
             entityManager.persist(post);
             entityManager.getTransaction().commit();
+        } catch (PersistenceException e) {
+            throw new IllegalArgumentException("id may not be specified");
         } finally {
             if (entityManager != null) {
                 entityManager.close();
@@ -50,6 +52,11 @@ public class PostDBDAO implements PostDAO {
         EntityManager entityManager = null;
         try {
             entityManager = entityManagerFactory.createEntityManager();
+
+            if (entityManager.find(Post.class, post.getId()) == null) {
+                throw new IllegalArgumentException("no post found");
+            }
+
             entityManager.getTransaction().begin();
             entityManager.merge(post);
             entityManager.getTransaction().commit();
