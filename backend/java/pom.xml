@@ -15,8 +15,6 @@
         <java.version>14</java.version>
     </properties>
 
-
-
     <dependencies>
         <dependency>
             <groupId>org.hibernate</groupId>
