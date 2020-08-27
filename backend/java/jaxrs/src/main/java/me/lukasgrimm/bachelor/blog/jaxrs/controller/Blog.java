@@ -23,26 +23,68 @@ public class Blog {
     @Path("/post")
     @Produces(MediaType.APPLICATION_JSON)
     public Response fetchAllPosts() {
-        return null;
+        List<Post> posts = dao.findAll();
+
+        return Response
+                .status(Response.Status.OK)
+                .entity(posts)
+                .build();
     }
 
     @POST
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response createPost(Post post) {
-        return null;
+        try {
+            dao.create(post);
+        } catch (IllegalArgumentException e) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .build();
+        }
+
+        return Response
+                .status(Response.Status.NO_CONTENT)
+                .build();
     }
 
     @PUT
     @Path("/post/{postId}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response updatePost(@PathParam("postId") int postId, Post post) {
-        return null;
+
+        if (postId != post.getId()) {
+            return Response
+                    .status(Response.Status.BAD_REQUEST)
+                    .build();
+        }
+
+        try {
+            dao.update(post);
+        } catch (IllegalArgumentException e) {
+            return Response
+                    .status(Response.Status.NOT_FOUND)
+                    .build();
+        }
+
+        return Response
+                .status(Response.Status.NO_CONTENT)
+                .build();
     }
 
-    @PUT
+    @DELETE
     @Path("/post/{postId}")
     public Response deletePost(@PathParam("postId") int postId) {
-        return null;
+        try {
+            dao.delete(postId);
+        } catch (IllegalArgumentException e) {
+            return Response
+                    .status(Response.Status.NOT_FOUND)
+                    .build();
+        }
+
+        return Response
+                .status(Response.Status.NO_CONTENT)
+                .build();
     }
 }

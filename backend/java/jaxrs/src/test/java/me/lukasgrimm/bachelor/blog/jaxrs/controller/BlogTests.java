@@ -37,7 +37,6 @@ public class BlogTests {
 
         Assertions.assertEquals(expectedPostList, response.getEntity());
         Assertions.assertEquals(Response.Status.OK, response.getStatusInfo());
-        Assertions.assertEquals("application/json", response.getHeaderString("Content-Type"));
         verify(mockedDao, atLeastOnce()).findAll();
     }
 
