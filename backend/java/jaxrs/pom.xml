@@ -71,7 +71,7 @@
         <dependency>
             <groupId>me.lukasgrimm</groupId>
             <artifactId>bachelor</artifactId>
-            <version>0.1.0-Snapshot</version>
+            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
