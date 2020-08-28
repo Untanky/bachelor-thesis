@@ -17,17 +17,22 @@ class PostDBDAO implements PostDAO
         return $postRepository->findAll();
     }
 
-    function create($post)
+    function create(Post $post)
     {
-        // TODO: Implement create() method.
+        if ($post->getId()) {
+            throw new \exception\IllegalArgumentException();
+        }
+
+        $this->entityManager->persist($post);
+        $this->entityManager->flush();
     }
 
-    function update($post)
+    function update(Post $post)
     {
         // TODO: Implement update() method.
     }
 
-    function delete($post)
+    function delete(Post $post)
     {
         // TODO: Implement delete() method.
     }

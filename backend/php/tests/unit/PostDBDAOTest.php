@@ -2,12 +2,25 @@
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use exception\IllegalArgumentException;
 
 class PostDBDAOTest extends \Codeception\Test\Unit
 {
+    use Codeception\AssertThrows;
 
+    /**
+     * @var PostDBDAO
+     */
     private $dao;
 
+    /**
+     * @var EntityManager
+     */
+    private $entityManager;
+
+    /**
+     * @var Post
+     */
     private $post1, $post2, $post3, $post4;
 
     protected function _before()
@@ -38,22 +51,8 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         $this->post4->setTitle("I'm back and posting again");
         $this->post4->setDescription("I have decided that I need to continue posting.");
 
+        $this->entityManager = $entityManager;
         $this->dao = new PostDBDAO($entityManager);
-    }
-
-    public function testDelete()
-    {
-
-    }
-
-    public function testUpdate()
-    {
-
-    }
-
-    public function testCreate()
-    {
-
     }
 
     public function testFindAll()
@@ -64,6 +63,35 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         $this->assertContains($this->post1, $postList);
         $this->assertContains($this->post2, $postList);
         $this->assertContains($this->post3, $postList);
+    }
+
+    public function testCreate()
+    {
+        $this->dao->create($this->post4);
+
+        $this->assertEquals($this->post4, $this->entityManager->find('Post', $this->post4->getId()));
+    }
+
+    public function testCreateWithGivenId()
+    {
+        $reflObj = new ReflectionObject($this->post4);
+        $reflProperty = $reflObj->getProperty('id');
+        $reflProperty->setAccessible(true);
+        $reflProperty->setValue($this->post4, 3);
+
+        $this->assertThrows(IllegalArgumentException::class, function() {
+            $this->dao->create($this->post4);
+        });
+    }
+
+    public function testDelete()
+    {
+
+    }
+
+    public function testUpdate()
+    {
+
     }
 
     protected function createDatabaseSchema(EntityManager $entityManager)

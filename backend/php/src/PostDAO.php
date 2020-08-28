@@ -4,9 +4,9 @@ interface PostDAO
 {
     function findAll();
 
-    function create($post);
+    function create(Post $post);
 
-    function update($post);
+    function update(Post $post);
 
-    function delete($post);
+    function delete(Post $post);
 }
