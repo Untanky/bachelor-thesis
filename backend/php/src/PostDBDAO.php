@@ -29,11 +29,28 @@ class PostDBDAO implements PostDAO
 
     function update(Post $post)
     {
-        // TODO: Implement update() method.
+        $managedPost = $this->entityManager->find('Post', $post->getId());
+
+        if (!$managedPost) {
+            throw new \exception\IllegalArgumentException();
+        }
+
+        $managedPost->setTitle($post->getTitle());
+        $managedPost->setDescription($post->getDescription());
+
+        $this->entityManager->refresh($managedPost);
+        $this->entityManager->flush();
     }
 
-    function delete(Post $post)
+    function delete(int $id)
     {
-        // TODO: Implement delete() method.
+        $managedPost = $this->entityManager->find('Post', $id);
+
+        if (!$managedPost) {
+            throw new \exception\IllegalArgumentException();
+        }
+
+        $this->entityManager->remove($managedPost);
+        $this->entityManager->flush();
     }
 }

@@ -8,5 +8,5 @@ interface PostDAO
 
     function update(Post $post);
 
-    function delete(Post $post);
+    function delete(int $id);
 }

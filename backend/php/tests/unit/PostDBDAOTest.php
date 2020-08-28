@@ -84,14 +84,46 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         });
     }
 
-    public function testDelete()
-    {
-
-    }
-
     public function testUpdate()
     {
+        $this->post2->setTitle('Test');
+        $this->post2->setDescription('Description');
+        $this->dao->update($this->post2);
 
+        $this->assertEquals($this->post2, $this->entityManager->find('Post', $this->post2->getId()));
+    }
+
+    public function testUpdateWithUnknownId()
+    {
+        $postId = 4;
+
+        $reflObj = new ReflectionObject($this->post4);
+        $reflProperty = $reflObj->getProperty('id');
+        $reflProperty->setAccessible(true);
+        $reflProperty->setValue($this->post4, $postId);
+
+        $this->assertThrows(IllegalArgumentException::class, function() {
+            $this->dao->update($this->post4);
+        });
+    }
+
+    public function testDelete()
+    {
+        $deletedPost = $this->post1;
+        $postId = $deletedPost->getId();
+
+        $this->dao->delete($postId);
+
+        $fetchedPost = $this->entityManager->find('Post', $postId);
+        $this->assertNull($fetchedPost);
+    }
+
+    public function testDeleteWithUnknownId()
+    {
+        $this->assertThrows(IllegalArgumentException::class, function() {
+            $unknownPostId = 4;
+            $this->dao->delete($unknownPostId);
+        });
     }
 
     protected function createDatabaseSchema(EntityManager $entityManager)
