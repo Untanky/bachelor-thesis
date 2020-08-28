@@ -1,4 +1,6 @@
 {
+    "name": "Untanky/bachelor-thesis-blog-dao",
+    "description": "A DAO for access blog data used in my bachelor thesis",
     "require": {
         "doctrine/orm": "^2.7"
     },
