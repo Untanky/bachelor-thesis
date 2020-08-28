@@ -1,5 +1,8 @@
 <?php
 
+namespace dao;
+use model\Post;
+
 interface PostDAO
 {
     function findAll();

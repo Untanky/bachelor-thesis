@@ -1,13 +1,18 @@
 <?php
 
+namespace dao;
+
 use Doctrine\ORM\EntityManager;
+use model\Post;
+use dao\PostDAO;
 
 class PostDBDAO implements PostDAO
 {
 
     private $entityManager;
 
-    function __construct(EntityManager $entityManager) {
+    function __construct(EntityManager $entityManager)
+    {
         $this->entityManager = $entityManager;
     }
 

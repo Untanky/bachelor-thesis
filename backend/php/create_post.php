@@ -1,5 +1,7 @@
 <?php
 
+use model\Post;
+
 require_once "bootstrap.php";
 
 $newPosName = $argv[1];

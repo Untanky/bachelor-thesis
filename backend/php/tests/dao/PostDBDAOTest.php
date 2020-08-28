@@ -1,8 +1,13 @@
 <?php
 
+namespace dao;
+
+use Codeception;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use exception\IllegalArgumentException;
+use model\Post;
+use ReflectionObject;
 
 class PostDBDAOTest extends \Codeception\Test\Unit
 {
@@ -29,12 +34,12 @@ class PostDBDAOTest extends \Codeception\Test\Unit
 
 
         $isDevMode = true;
-        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode, null, null, false);
+        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__ . "/src"), $isDevMode, null, null, false);
 
         $conn = array(
-            'driver'   => 'pdo_sqlite',
+            'driver' => 'pdo_sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         );
 
         $entityManager = EntityManager::create($conn, $config);
@@ -79,7 +84,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         $reflProperty->setAccessible(true);
         $reflProperty->setValue($this->post4, 3);
 
-        $this->assertThrows(IllegalArgumentException::class, function() {
+        $this->assertThrows(IllegalArgumentException::class, function () {
             $this->dao->create($this->post4);
         });
     }
@@ -102,7 +107,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         $reflProperty->setAccessible(true);
         $reflProperty->setValue($this->post4, $postId);
 
-        $this->assertThrows(IllegalArgumentException::class, function() {
+        $this->assertThrows(IllegalArgumentException::class, function () {
             $this->dao->update($this->post4);
         });
     }
@@ -120,7 +125,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
 
     public function testDeleteWithUnknownId()
     {
-        $this->assertThrows(IllegalArgumentException::class, function() {
+        $this->assertThrows(IllegalArgumentException::class, function () {
             $unknownPostId = 4;
             $this->dao->delete($unknownPostId);
         });
