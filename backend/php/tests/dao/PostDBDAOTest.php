@@ -6,7 +6,7 @@ use Codeception;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use exception\IllegalArgumentException;
-use model\Post;
+use \model\Post;
 use ReflectionObject;
 
 class PostDBDAOTest extends \Codeception\Test\Unit
@@ -74,7 +74,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
     {
         $this->dao->create($this->post4);
 
-        $this->assertEquals($this->post4, $this->entityManager->find('Post', $this->post4->getId()));
+        $this->assertEquals($this->post4, $this->entityManager->find('\model\Post', $this->post4->getId()));
     }
 
     public function testCreateWithGivenId()
@@ -95,7 +95,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
         $this->post2->setDescription('Description');
         $this->dao->update($this->post2);
 
-        $this->assertEquals($this->post2, $this->entityManager->find('Post', $this->post2->getId()));
+        $this->assertEquals($this->post2, $this->entityManager->find('\model\Post', $this->post2->getId()));
     }
 
     public function testUpdateWithUnknownId()
@@ -119,7 +119,7 @@ class PostDBDAOTest extends \Codeception\Test\Unit
 
         $this->dao->delete($postId);
 
-        $fetchedPost = $this->entityManager->find('Post', $postId);
+        $fetchedPost = $this->entityManager->find('\model\Post', $postId);
         $this->assertNull($fetchedPost);
     }
 

@@ -18,7 +18,7 @@ class PostDBDAO implements PostDAO
 
     function findAll()
     {
-        $postRepository = $this->entityManager->getRepository('Post');
+        $postRepository = $this->entityManager->getRepository('\model\Post');
         return $postRepository->findAll();
     }
 
@@ -34,7 +34,7 @@ class PostDBDAO implements PostDAO
 
     function update(Post $post)
     {
-        $managedPost = $this->entityManager->find('Post', $post->getId());
+        $managedPost = $this->entityManager->find('\model\Post', $post->getId());
 
         if (!$managedPost) {
             throw new \exception\IllegalArgumentException();
@@ -49,7 +49,7 @@ class PostDBDAO implements PostDAO
 
     function delete(int $id)
     {
-        $managedPost = $this->entityManager->find('Post', $id);
+        $managedPost = $this->entityManager->find('\model\Post', $id);
 
         if (!$managedPost) {
             throw new \exception\IllegalArgumentException();

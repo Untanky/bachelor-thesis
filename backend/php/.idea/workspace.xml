@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/create_post.php" beforeDir="false" afterPath="$PROJECT_DIR$/create_post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PostDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PostDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PostDBDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PostDBDAO.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/unit/PostDBDAOTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/dao/PostDBDAOTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PostDBDAO.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PostDBDAO.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/dao/PostDBDAOTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/dao/PostDBDAOTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit.suite.yml" beforeDir="false" afterPath="$PROJECT_DIR$/tests/dao.suite.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +57,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -68,11 +69,24 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Codeception.PostDBDAOTest.php::testDelete">
+    <configuration name="PostDBDAOTest.php::testDelete" type="CodeceptionConfigurationType" factoryName="Codeception" temporary="true">
+      <PhpTestRunnerSettings file="$PROJECT_DIR$/tests/dao/PostDBDAOTest.php" method="testDelete" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="Run Unit Tests" type="CodeceptionConfigurationType" factoryName="Codeception">
       <PhpTestRunnerSettings directory="$PROJECT_DIR$/tests/unit" method="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Codeception.Run Unit Tests" />
+      <item itemvalue="Codeception.PostDBDAOTest.php::testDelete" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Codeception.PostDBDAOTest.php::testDelete" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -82,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598547110412</updated>
-      <workItem from="1598547111925" duration="12906000" />
+      <workItem from="1598547111925" duration="14102000" />
     </task>
     <servers />
   </component>
@@ -129,22 +143,22 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="650" y="479" width="491" height="249" key="ComposerInitDialogKey/0.0.1792.1120@0.0.1792.1120" timestamp="1598547937267" />
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1598622278954">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom" timestamp="1598624176719">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.bottom/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598622278954" />
-    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1598622278953">
+    <state width="1750" height="318" key="GridCell.Tab.0.bottom/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598624176719" />
+    <state width="1750" height="318" key="GridCell.Tab.0.center" timestamp="1598624176718">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.center/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598622278953" />
-    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1598622278952">
+    <state width="1750" height="318" key="GridCell.Tab.0.center/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598624176718" />
+    <state width="1750" height="318" key="GridCell.Tab.0.left" timestamp="1598624176717">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.left/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598622278952" />
-    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1598622278953">
+    <state width="1750" height="318" key="GridCell.Tab.0.left/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598624176717" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right" timestamp="1598624176718">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="318" key="GridCell.Tab.0.right/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598622278953" />
+    <state width="1750" height="318" key="GridCell.Tab.0.right/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598624176718" />
     <state x="643" y="293" key="NewPhpClassDialog" timestamp="1598620230819">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -154,6 +168,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="715" y="490" key="NewPhpFileDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1598548209266" />
+    <state x="397" y="199" key="SettingsEditor" timestamp="1598623682752">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="397" y="199" key="SettingsEditor/-1920.40.1920.1080/0.0.1792.1120@0.0.1792.1120" timestamp="1598623682752" />
     <state x="618" y="314" width="739" height="644" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1598613630540">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
