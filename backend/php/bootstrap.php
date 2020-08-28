@@ -12,7 +12,7 @@ $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $i
 // $config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config"), $isDevMode);
 // database configuration parameters
 $conn = array(
-    'url' => 'postgresql://root:root@localhost:5432/post'
+    'url' => 'pdo-pgsql://root:root@localhost:5432/blog'
 );
 
 // obtaining the entity manager
