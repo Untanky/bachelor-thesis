@@ -6,7 +6,9 @@
 	"license": "MIT",
 	"require": {
 		"php": ">=7.2",
-		"codeigniter4/framework": "^4"
+		"codeigniter4/framework": "^4",
+		"untanky/bachelor-thesis-blog-dao": "dev-php-code-igniter-implementation",
+		"php-di/php-di": "^6.2"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "^1.9@dev",
@@ -18,6 +20,12 @@
 			"Tests\\Support\\": "tests/_support"
 		}
 	},
+	"repositories": [
+		{
+			"type": "path",
+			"url": "../dao"
+		}
+	],
 	"scripts": {
 		"post-update-cmd": [
 			"@composer dump-autoload"

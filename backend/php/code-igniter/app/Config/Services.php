@@ -1,6 +1,9 @@
 <?php namespace Config;
 
 use CodeIgniter\Config\Services as CoreServices;
+use dao\PostDBDAO;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 
 /**
  * Services Configuration file.
@@ -17,6 +20,23 @@ use CodeIgniter\Config\Services as CoreServices;
  */
 class Services extends CoreServices
 {
+
+    public static function dao() {
+        // Create a simple "default" Doctrine ORM configuration for Annotations
+        $isDevMode = true;
+        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $isDevMode, null, null, false);
+        // or if you prefer XML
+        // $config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config"), $isDevMode);
+        // database configuration parameters
+        $conn = array(
+            'url' => 'pdo-pgsql://root:root@localhost:5432/blog'
+        );
+
+        // obtaining the entity manager
+        $entityManager = EntityManager::create($conn, $config);
+
+        return new PostDBDAO($entityManager);
+    }
 
 	//    public static function example($getShared = true)
 	//    {

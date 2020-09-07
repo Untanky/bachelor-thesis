@@ -32,6 +32,11 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+$routes->get('/api/blog/post', 'BlogController::fetchAll');
+$routes->post('/api/blog/post', 'BlogController::createPost');
+$routes->put('/api/blog/post/(:num)', 'BlogController::updatePost/$1');
+$routes->delete('/api/blog/post(:num)', 'BlogController::deletePost/$1');
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
