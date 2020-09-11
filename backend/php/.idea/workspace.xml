@@ -169,8 +169,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Codeception.Run Unit Tests" />
       <item itemvalue="Codeception.PostDBDAOTest.php::testDelete" />
+      <item itemvalue="Codeception.Run Unit Tests" />
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
     <recent_temporary>
