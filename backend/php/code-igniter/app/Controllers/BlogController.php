@@ -1,8 +1,8 @@
 <?php
 
-
 namespace App\Controllers;
 
+use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\RESTful\ResourceController;
 use Config\Services;
 use dao\PostDAO;
@@ -24,45 +24,49 @@ class BlogController extends ResourceController
         $this->dao = Services::dao();
     }
 
-    function fetchAll() {
+    function fetchAll()
+    {
         return $this->respond($this->dao->findAll());
     }
 
-    function createPost() {
+    function createPost()
+    {
         try {
             $body = $this->request->getBody();
             $decodedContent = json_decode($body);
             $post = Post::fromArray($decodedContent);
             $this->dao->create($post);
-            return $this->respond(null, $this->codes['no_content']);
+            return $this->respond(null, ResponseInterface::HTTP_NO_CONTENT);
         } catch (IllegalArgumentException $e) {
-            return $this->respond(null, $this->codes['bad_request']);
+            return $this->respond(null, ResponseInterface::HTTP_BAD_REQUEST);
         }
     }
 
-    function updatePost($id) {
+    function updatePost($id)
+    {
         try {
             $content = $this->request->getBody();
             $decodedContent = json_decode($content);
             $post = Post::fromArray($decodedContent);
 
-            if($post->getId() != $id) {
-                return $this->respond(null, $this->codes['bad_request']);
+            if ($post->getId() != $id) {
+                return $this->respond(null, ResponseInterface::HTTP_BAD_REQUEST);
             }
 
             $this->dao->update($post);
-            return $this->respond(null, $this->codes['no_content']);
+            return $this->respond(null, ResponseInterface::HTTP_NO_CONTENT);
         } catch (IllegalArgumentException $e) {
-            return $this->respond(null, $this->codes['resource_not_found']);
+            return $this->respond(null, ResponseInterface::HTTP_NOT_FOUND);
         }
     }
 
-    function deletePost($id) {
+    function deletePost($id)
+    {
         try {
             $this->dao->delete($id);
-            return $this->respond(null, $this->codes['no_content']);
+            return $this->respond(null, ResponseInterface::HTTP_NO_CONTENT);
         } catch (IllegalArgumentException $e) {
-            return $this->respond(null, $this->codes['resource_not_found']);
+            return $this->respond(null, ResponseInterface::HTTP_NOT_FOUND);
         }
     }
 }
