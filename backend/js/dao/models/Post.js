@@ -19,4 +19,6 @@ Post.init({
   sequelize,
 });
 
+Post.sync();
+
 export default Post;

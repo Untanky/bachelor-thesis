@@ -3,7 +3,7 @@ import Post from '../models/Post';
 export const findAll = async () => Post.findAll();
 
 export const create = async (post) => {
-  if (!post.id) {
+  if (post.id) {
     throw new Error();
   }
 
