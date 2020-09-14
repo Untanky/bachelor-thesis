@@ -3344,6 +3344,11 @@ restify-errors@^8.0.2:
   optionalDependencies:
     safe-json-stringify "^1.0.4"
 
+restify-router-config@^1.2.0-alpha.0:
+  version "1.2.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/restify-router-config/-/restify-router-config-1.2.0-alpha.0.tgz#3c13c27db0edbb82116e731e5bd3bc5596704a0e"
+  integrity sha512-nYfYyKyBmsjMJO7Lun1XC1oUnHzYTvPQOyNBZ7cO5oYr2RKq8IEBGdv5kzmq4v492vq0eY9y/n8UPAnNkZeR8A==
+
 restify@^8.5.1:
   version "8.5.1"
   resolved "https://registry.yarnpkg.com/restify/-/restify-8.5.1.tgz#1cbab41ef6a0990e7abac62a5b12182f591c1a0c"
