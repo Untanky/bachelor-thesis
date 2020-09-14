@@ -1,10 +1,14 @@
 import express from 'express';
+import {
+  fetchAllPosts,
+  createPost,
+  updatePost,
+  deletePost,
+} from './handler';
 
 const router = express.Router();
 
-router.get('/post', (req, res) => {
-
-});
+router.get('/post', fetchAllPosts);
 
 router.post('/post', (req, res) => {
 
