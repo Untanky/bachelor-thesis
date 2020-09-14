@@ -36,4 +36,38 @@ describe('blog post handler', () => {
 
     });
   });
+
+  describe('create a new post', () => {
+    it('should creates new post', () => {
+
+    });
+
+    it('should send status 400 when id is given', () => {
+
+    });
+  });
+
+  describe('update a post', () => {
+    it('should update an existing post', () => {
+
+    });
+
+    it('should send status 400 when id in path and body don\'t match', () => {
+
+    });
+
+    it('should send status 404 when post with id doesn\'t exist', () => {
+
+    });
+  });
+
+  describe('delete a post', () => {
+    it('should delete an existing post', () => {
+
+    });
+
+    it('should send status 404 when post with id doesn\'t exist', () => {
+
+    });
+  });
 });
