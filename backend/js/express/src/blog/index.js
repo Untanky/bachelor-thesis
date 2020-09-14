@@ -10,16 +10,10 @@ const router = express.Router();
 
 router.get('/post', fetchAllPosts);
 
-router.post('/post', (req, res) => {
+router.post('/post', createPost);
 
-});
+router.put('/post/:postId', updatePost);
 
-router.put('/post/:postId', (req, res) => {
-
-});
-
-router.delete('/post/:postId', (req, res) => {
-
-});
+router.delete('/post/:postId', deletePost);
 
 export default router;

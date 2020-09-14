@@ -1,11 +1,12 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 
 import blog from './blog';
 
 const server = express();
 
-server.use('/api/blog', blog);
+server.use(bodyParser.json);
 
-server.get('/hello', (req, res) => res.send('Hello'));
+server.use('/api/blog', blog);
 
 export default server;
