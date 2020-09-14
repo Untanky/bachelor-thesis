@@ -17,8 +17,8 @@ Post.init({
   },
 }, {
   sequelize,
+  tableName: 'post',
+  timestamps: false,
 });
-
-Post.sync();
 
 export default Post;
