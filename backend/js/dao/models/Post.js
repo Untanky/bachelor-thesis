@@ -1,9 +1,9 @@
 import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/sequelize';
 
-class User extends Model {}
+class Post extends Model {}
 
-User.init({
+Post.init({
   id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
@@ -18,3 +18,5 @@ User.init({
 }, {
   sequelize,
 });
+
+export default Post;
