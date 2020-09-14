@@ -12,6 +12,7 @@
     "sequelize": "^6.3.5"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
@@ -25,6 +26,7 @@
     "sinon-chai": "^3.5.0"
   },
   "scripts": {
+    "build": "yarn test && babel src -d lib",
     "test": "mocha --require babel-core/register"
   }
 }

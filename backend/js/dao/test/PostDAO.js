@@ -8,6 +8,9 @@ import mock from 'mock-require';
 
 chaiUse(sinonChai);
 
+const pathToDAO = '../src/dao/PostDAO';
+const pathToModel = '../src/models/Post';
+
 const post1 = {
   id: 1,
   title: 'First Post',
@@ -36,11 +39,11 @@ const postlist = [post1, post2, post3];
 describe('PostDAO', () => {
   describe('#findAll', () => {
     it('should fetch all posts', async () => {
-      mock('../models/Post', {
+      mock(pathToModel, {
         findAll: () => postlist,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       const actualPostlist = await PostDAO.findAll();
       expect(actualPostlist).to.be.equal(postlist);
@@ -50,11 +53,11 @@ describe('PostDAO', () => {
   describe('#create', () => {
     it('should create a new post', async () => {
       const createSpy = sinon.spy();
-      mock('../models/Post', {
+      mock(pathToModel, {
         create: createSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       await PostDAO.create(post4);
       expect(createSpy).to.have.been.calledOnceWith(post4);
@@ -62,11 +65,11 @@ describe('PostDAO', () => {
 
     it('should throw error when the id is set', async () => {
       const createSpy = sinon.spy();
-      mock('../models/Post', {
+      mock(pathToModel, {
         create: createSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       post4.id = 4;
       try {
@@ -82,11 +85,11 @@ describe('PostDAO', () => {
     it('should update an existing post', async () => {
       const updateSpy = sinon.spy();
       const findOneSpy = sinon.spy(() => ({ ...post3, update: updateSpy }));
-      mock('../models/Post', {
+      mock(pathToModel, {
         findOne: findOneSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       const updatePost = {
         id: 3,
@@ -101,11 +104,11 @@ describe('PostDAO', () => {
 
     it('should throw error when post does not exist', async () => {
       const findOneSpy = sinon.spy(() => null);
-      mock('../models/Post', {
+      mock(pathToModel, {
         findOne: findOneSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       const updatePost = {
         id: 5,
@@ -126,11 +129,11 @@ describe('PostDAO', () => {
     it('should delete an existing post', async () => {
       const destroySpy = sinon.spy();
       const findOneSpy = sinon.spy(() => ({ ...post3, destroy: destroySpy }));
-      mock('../models/Post', {
+      mock(pathToModel, {
         findOne: findOneSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       const deletePostId = 3;
 
@@ -141,11 +144,11 @@ describe('PostDAO', () => {
 
     it('should throw error when post does not exists', async () => {
       const findOneSpy = sinon.spy(() => null);
-      mock('../models/Post', {
+      mock(pathToModel, {
         findOne: findOneSpy,
       });
 
-      const PostDAO = mock.reRequire('../dao/PostDAO');
+      const PostDAO = mock.reRequire(pathToDAO);
 
       const deletePostId = 5;
       try {
