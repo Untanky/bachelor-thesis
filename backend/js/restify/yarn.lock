@@ -263,6 +263,11 @@ assert-plus@1.0.0, assert-plus@^1.0.0:
   resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-1.0.0.tgz#f12e0f3c5d77b0b1cdd9146942e4e96c1e4dd525"
   integrity sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
 
+assert-plus@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/assert-plus/-/assert-plus-0.1.5.tgz#ee74009413002d84cec7219c6ac811812e723160"
+  integrity sha1-7nQAlBMALYTOxyGcasgRgS5yMWA=
+
 assertion-error@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/assertion-error/-/assertion-error-1.1.0.tgz#e60b6b0e8f301bd97e5375215bda406c85118c0b"
@@ -3348,6 +3353,13 @@ restify-router-config@^1.2.0-alpha.0:
   version "1.2.0-alpha.0"
   resolved "https://registry.yarnpkg.com/restify-router-config/-/restify-router-config-1.2.0-alpha.0.tgz#3c13c27db0edbb82116e731e5bd3bc5596704a0e"
   integrity sha512-nYfYyKyBmsjMJO7Lun1XC1oUnHzYTvPQOyNBZ7cO5oYr2RKq8IEBGdv5kzmq4v492vq0eY9y/n8UPAnNkZeR8A==
+
+restify-router@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/restify-router/-/restify-router-0.6.1.tgz#f199df43f2c9dc0dafac8f0f2aaf72967915626d"
+  integrity sha512-XRqyljhZFV4AXV5MLlrdoJre0xUwpw9FBv0ZbKMVkeCPEqyn4nsa848u/hjSqS7nULf8KjtcGhlS2+05k0K5AA==
+  dependencies:
+    assert-plus "^0.1.5"
 
 restify@^8.5.1:
   version "8.5.1"
