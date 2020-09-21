@@ -2,7 +2,6 @@ package main
 
 import (
 	"dao/models"
-	"fmt"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"testing"
@@ -185,10 +184,41 @@ func TestUpdateWithUnknownId(t *testing.T) {
 }
 
 func TestDelete(t *testing.T) {
-	fmt.Println("Test")
+	db, dao := setupDatabase(t)
+
+	deleteId := int64(3)
+
+	err := dao.Delete(deleteId)
+	if err != nil {
+		dropTable(db)
+		t.Error(err)
+		return
+	}
+
+	actualPost := &models.Post{}
+	result := db.Find(actualPost, deleteId)
+
+	if result.RowsAffected != 0 {
+		dropTable(db)
+		t.Fail()
+		return
+	}
+
+	dropTable(db)
 }
 
 func TestDeleteWithUnknownId(t *testing.T) {
-	fmt.Println("Test")
+	db, dao := setupDatabase(t)
+
+	deleteId := int64(5)
+
+	err := dao.Delete(deleteId)
+	if err == nil || err != IllegalArgumentError {
+		dropTable(db)
+		t.Error(err)
+		return
+	}
+
+	dropTable(db)
 }
 

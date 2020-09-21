@@ -39,16 +39,24 @@ func (dao *postDAO) Create(post *models.Post) error {
 }
 
 func (dao *postDAO) Update(post *models.Post) error {
-	fetchedPost := &models.Post{}
-	result := dao.db.Find(fetchedPost, post.ID)
-	if result.RowsAffected == 0 {
+	result := dao.db.Updates(post)
+
+	if result.RowsAffected == 0 && result.Error == nil{
 		return IllegalArgumentError
 	}
 
-	result = dao.db.Updates(post)
 	return result.Error
 }
 
 func (dao *postDAO) Delete(id int64) error {
-	return errors.New("not implemented")
+	postToBeDeleted := &models.Post{
+		ID: id,
+	}
+	result := dao.db.Delete(postToBeDeleted)
+
+	if result.RowsAffected == 0 && result.Error == nil{
+		return IllegalArgumentError
+	}
+
+	return result.Error
 }
