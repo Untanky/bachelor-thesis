@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="697e936e-1b12-4cf8-9bc1-b585a939216c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/go.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/post.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post-dao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post-dao_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-dao.go" beforeDir="false" afterPath="$PROJECT_DIR$/post-dao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/post-dao_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/post-dao_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.db" beforeDir="false" afterPath="$PROJECT_DIR$/test.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

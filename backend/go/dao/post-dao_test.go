@@ -57,6 +57,7 @@ func TestFindAll(t *testing.T) {
 	if err != nil {
 		dropTable(db)
 		t.Error(err)
+		return
 	}
 
 	postList := []*models.Post{post1, post2, post3}
@@ -66,6 +67,7 @@ func TestFindAll(t *testing.T) {
 		if *actualPost != *expectedPost {
 			dropTable(db)
 			t.Fail()
+			return
 		}
 	}
 
@@ -84,6 +86,7 @@ func TestCreate(t *testing.T) {
 	if err != nil {
 		dropTable(db)
 		t.Error(err)
+		return
 	}
 
 	actualPost := &models.Post{}
@@ -92,6 +95,7 @@ func TestCreate(t *testing.T) {
 	if *actualPost != *post4 {
 		dropTable(db)
 		t.Fail()
+		return
 	}
 
 	dropTable(db)
@@ -110,6 +114,7 @@ func TestCreateWithSetId(t *testing.T) {
 	if err == nil || err != IllegalArgumentError{
 		dropTable(db)
 		t.Error(err)
+		return
 	}
 
 	actualPost := &models.Post{}
@@ -118,17 +123,65 @@ func TestCreateWithSetId(t *testing.T) {
 	if result.RowsAffected != 0 {
 		dropTable(db)
 		t.Fail()
+		return
 	}
 
 	dropTable(db)
 }
 
 func TestUpdate(t *testing.T) {
-	fmt.Println("Test")
+	db, dao := setupDatabase(t)
+
+	updatedPost3 := &models.Post{
+		ID:          3,
+		Title:       "Dritter Post",
+		Description: "Test Beschreibung",
+	}
+
+	err := dao.Update(updatedPost3)
+	if err != nil {
+		dropTable(db)
+		t.Error(err)
+		return
+	}
+
+	actualPost := &models.Post{}
+	db.Find(actualPost, updatedPost3.ID)
+
+	if *actualPost != *updatedPost3 {
+		dropTable(db)
+		t.Fail()
+		return
+	}
+
+	dropTable(db)
 }
 
 func TestUpdateWithUnknownId(t *testing.T) {
-	fmt.Println("Test")
+	db, dao := setupDatabase(t)
+
+	updatedPost4 := &models.Post{
+		ID:          4,
+		Title:       "Vierter Post",
+		Description: "Test Beschreibung",
+	}
+
+	err := dao.Update(updatedPost4)
+	if err == nil || err != IllegalArgumentError {
+		dropTable(db)
+		t.Error(err)
+		return
+	}
+
+	actualPost := &models.Post{}
+	result := db.Find(actualPost, updatedPost4.ID)
+
+	if result.RowsAffected != 0 {
+		dropTable(db)
+		t.Fail()
+	}
+
+	dropTable(db)
 }
 
 func TestDelete(t *testing.T) {
