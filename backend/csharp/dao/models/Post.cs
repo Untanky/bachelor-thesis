@@ -1,15 +1,46 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace dao.models {
-  class Post
+  [Table("post")]
+  public class Post
   {
-    private int id;
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int Id { get; set; }
+    public string Title { get; set; }
 
-    private string title;
+    public string Description { get; set; }
 
-    private string description;
+    public Post() {
+
+    }
 
     public Post(string title, string description) {
-      this.title = title;
-      this.description = description;
+      this.Title = title;
+      this.Description = description;
+    }
+
+    // override object.Equals
+    public override bool Equals(object obj)
+    {
+        //
+        // See the full list of guidelines at
+        //   http://go.microsoft.com/fwlink/?LinkID=85237
+        // and also the guidance for operator== at
+        //   http://go.microsoft.com/fwlink/?LinkId=85238
+        //
+        
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        var other = (Post)obj;
+        
+        return this.Id == other.Id 
+          && this.Title.Equals(other.Title)
+          && this.Description.Equals(other.Description);
     }
   }
 }
