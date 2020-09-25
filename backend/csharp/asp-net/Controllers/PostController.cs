@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace asp_net.Controllers {
   [ApiController]
-  [Route("blog")]
+  [Route("api/blog")]
   public class PostController : ControllerBase {
     private PostDAO dao;
 
@@ -59,6 +59,5 @@ namespace asp_net.Controllers {
         return NotFound();
       }
     }
-
   }
 }
