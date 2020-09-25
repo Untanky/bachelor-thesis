@@ -19,11 +19,8 @@ namespace asp_net.Controllers {
 
     [HttpGet]
     [Route("post")]
-    public IEnumerable<Post> FetchAllPosts() {
-      var findAllTask = this.dao.FindAll();
-      findAllTask.Start();
-      findAllTask.Wait();
-      return findAllTask.Result;
+    public async Task<IEnumerable<Post>> FetchAllPosts() {
+      return await this.dao.FindAll();
     }
 
     [HttpPost]
@@ -38,7 +35,7 @@ namespace asp_net.Controllers {
     }
 
     [HttpPut]
-    [Route("{postId}")]
+    [Route("post/{postId}")]
     public ActionResult UpdatePost([FromRoute]int postId, [FromBody]Post post) {
       if (postId != post.Id) {
         return BadRequest();
@@ -52,8 +49,8 @@ namespace asp_net.Controllers {
       }
     }
 
-    [HttpPost]
-    [Route("post")]
+    [HttpDelete]
+    [Route("post/{postId}")]
     public ActionResult DeletePost([FromRoute]int postId) {
       try {
         this.dao.Delete(postId);
