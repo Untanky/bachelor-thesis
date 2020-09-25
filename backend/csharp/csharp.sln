@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dao.Tests", "dao.Tests\dao.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp-net", "asp-net\asp-net.csproj", "{558D71F6-DDC8-4A85-B07B-6705B4E224C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp-net.Tests", "asp-net.Tests\asp-net.Tests.csproj", "{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{558D71F6-DDC8-4A85-B07B-6705B4E224C4}.Release|x64.Build.0 = Release|Any CPU
 		{558D71F6-DDC8-4A85-B07B-6705B4E224C4}.Release|x86.ActiveCfg = Release|Any CPU
 		{558D71F6-DDC8-4A85-B07B-6705B4E224C4}.Release|x86.Build.0 = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|x64.Build.0 = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Debug|x86.Build.0 = Debug|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|x64.ActiveCfg = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|x64.Build.0 = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|x86.ActiveCfg = Release|Any CPU
+		{B2EC4C98-FEA0-4D5F-962E-36EC08ADB114}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
