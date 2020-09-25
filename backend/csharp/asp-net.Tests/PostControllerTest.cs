@@ -82,5 +82,50 @@ namespace asp_net.Tests
             mock.Verify((dao) => dao.Create(post4));
             Assert.IsInstanceOf<BadRequestResult>(actionResult);
         }
+
+        [Test]
+        public void TestUpdatePost()
+        {
+            var postId = updatedPost3.Id;
+            var mock = new Mock<PostDAO>();
+            mock.Setup(dao => dao.Update(It.IsAny<Post>()));
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.UpdatePost(postId, updatedPost3);
+
+            mock.Verify((dao) => dao.Update(updatedPost3));
+            Assert.IsInstanceOf<NoContentResult>(actionResult);
+        }
+
+        [Test]
+        public void TestUpdatePostWhenIdsDoNotMatch()
+        {
+            var postId = 2;
+            var mock = new Mock<PostDAO>();
+            mock.Setup(dao => dao.Update(It.IsAny<Post>()));
+
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.UpdatePost(postId, updatedPost3);
+
+            Assert.IsInstanceOf<BadRequestResult>(actionResult);
+        }
+
+        [Test]
+        public void TestUpdatePostWhenIdIsUnknown()
+        {
+            var postId = updatedPost3.Id;
+            var mock = new Mock<PostDAO>();
+            mock
+                .Setup(dao => dao.Update(It.IsAny<Post>()))
+                .Throws<ArgumentException>();
+
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.UpdatePost(postId, updatedPost3);
+
+            mock.Verify((dao) => dao.Update(updatedPost3));
+            Assert.IsInstanceOf<NotFoundResult>(actionResult);
+        }
     }
 }

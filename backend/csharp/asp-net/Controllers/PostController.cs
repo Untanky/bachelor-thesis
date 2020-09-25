@@ -9,7 +9,7 @@ using System.Net.Http;
 
 namespace asp_net.Controllers {
   [ApiController]
-  [Route("post")]
+  [Route("blog")]
   public class PostController : ControllerBase {
     private PostDAO dao;
 
@@ -18,6 +18,7 @@ namespace asp_net.Controllers {
     }
 
     [HttpGet]
+    [Route("post")]
     public IEnumerable<Post> FetchAllPosts() {
       var findAllTask = this.dao.FindAll();
       findAllTask.Start();
@@ -26,12 +27,28 @@ namespace asp_net.Controllers {
     }
 
     [HttpPost]
+    [Route("post")]
     public ActionResult CreatePost([FromBody]Post post) {
       try {
         this.dao.Create(post);
         return NoContent();
       } catch (Exception e) {
         return BadRequest();
+      }
+    }
+
+    [HttpPut]
+    [Route("{postId}")]
+    public ActionResult UpdatePost([FromRoute]int postId, [FromBody]Post post) {
+      if (postId != post.Id) {
+        return BadRequest();
+      }
+
+      try {
+        this.dao.Update(post);
+        return NoContent();
+      } catch (Exception e) {
+        return NotFound();
       }
     }
   }
