@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using NUnit.Framework;
 using Moq;
+using Microsoft.AspNetCore.Mvc;
 using dao;
 using dao.models;
 using asp_net.Controllers;
@@ -40,7 +42,6 @@ namespace asp_net.Tests
         [Test]
         public void TestFetchAllPosts()
         {
-            System.Console.WriteLine("HELLO WORLD!");
             var mock = new Mock<PostDAO>();
             mock
                 .Setup(dao => dao.FindAll())
@@ -49,7 +50,37 @@ namespace asp_net.Tests
             
             var actualPostList = postController.FetchAllPosts();
 
+            mock.Verify((dao) => dao.FindAll());
             Assert.AreEqual(postList, actualPostList);
+        }
+
+        [Test]
+        public void TestCreatePost()
+        {
+            var mock = new Mock<PostDAO>();
+            mock.Setup(dao => dao.Create(It.IsAny<Post>()));
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.CreatePost(post4);
+
+            mock.Verify((dao) => dao.Create(post4));
+            Assert.IsInstanceOf<NoContentResult>(actionResult);
+        }
+
+        [Test]
+        public void TestCreatePostWhenIdIsSet()
+        {
+            var mock = new Mock<PostDAO>();
+            mock
+                .Setup(dao => dao.Create(It.IsAny<Post>()))
+                .Throws<ArgumentException>();
+
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.CreatePost(post4);
+
+            mock.Verify((dao) => dao.Create(post4));
+            Assert.IsInstanceOf<BadRequestResult>(actionResult);
         }
     }
 }
