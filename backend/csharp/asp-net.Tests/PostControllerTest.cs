@@ -127,5 +127,35 @@ namespace asp_net.Tests
             mock.Verify((dao) => dao.Update(updatedPost3));
             Assert.IsInstanceOf<NotFoundResult>(actionResult);
         }
+
+        [Test]
+        public void TestDeletePost()
+        {
+            var postId = post3.Id;
+            var mock = new Mock<PostDAO>();
+            mock.Setup(dao => dao.Delete(It.IsAny<int>()));
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.DeletePost(postId);
+
+            mock.Verify((dao) => dao.Delete(postId));
+            Assert.IsInstanceOf<NoContentResult>(actionResult);
+        }
+        [Test]
+        public void TestDeletePostWhenIdIsUnknown()
+        {
+            var postId = post3.Id;
+            var mock = new Mock<PostDAO>();
+            mock
+                .Setup(dao => dao.Delete(It.IsAny<int>()))
+                .Throws<ArgumentException>();
+
+            var postController = new PostController(mock.Object);
+            
+            var actionResult = postController.DeletePost(postId);
+
+            mock.Verify((dao) => dao.Delete(postId));
+            Assert.IsInstanceOf<NotFoundResult>(actionResult);
+        }
     }
 }

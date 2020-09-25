@@ -51,5 +51,17 @@ namespace asp_net.Controllers {
         return NotFound();
       }
     }
+
+    [HttpPost]
+    [Route("post")]
+    public ActionResult DeletePost([FromRoute]int postId) {
+      try {
+        this.dao.Delete(postId);
+        return NoContent();
+      } catch (Exception e) {
+        return NotFound();
+      }
+    }
+
   }
 }
