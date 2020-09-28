@@ -1,12 +1,14 @@
 #!/bin/bash
 
 updatePost=`cat $1`
-postId=3
+postId=100
 
 status=$(curl -s -w "%{http_code}" --request PUT 'localhost:8080/api/blog/post/'$postId --header 'Content-Type: application/json' --data-raw "$updatePost")
 
-if [ $status != 204 ]; then
-  echo status code incorrect: $status supposed to be 204
+expectedStatus=404
+
+if [ $status != $expectedStatus ]; then
+  echo status code incorrect: $status supposed to be $expectedStatus
   exit 1
 fi;
 
