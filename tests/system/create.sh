@@ -1,8 +1,8 @@
 #!/bin/bash
 
-outputfile=./response.txt
+newPost=`cat $1`
 
-status=$(curl -s -w "%{http_code}" --request POST 'localhost:8080/api/blog/post' --header 'Content-Type: application/json' --data-raw '{"title":"Blog continued","description":"Next entry in my blog"}')
+status=$(curl -s -w "%{http_code}" --request POST 'localhost:8080/api/blog/post' --header 'Content-Type: application/json' --data-raw "$newPost")
 
 if [ $status != 204 ]; then
   echo status code incorrect: $status supposed to be 204

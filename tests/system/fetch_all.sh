@@ -9,12 +9,15 @@ response=$(cat "$outputfile")
 rm $outputfile
 
 if [ "$status" != 200 ]; then
-  echo response code incorrect
+  echo status code incorrect: $status supposed to be 204
   exit 1
 fi;
 
 if [ "$response" != "$data" ]; then
-  echo data incorrect
+  echo data incorrect: 
+  echo $response
+  echo does not match:
+  echo $data
   exit 1
 fi;
 

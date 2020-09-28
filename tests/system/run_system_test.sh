@@ -5,3 +5,6 @@ echo 'Initial fetch'
 
 echo 'Create (correctly)'
 /bin/bash ./system/create.sh ./data/new_post.json ./data/fetch_after_create.json
+
+echo 'Create (incorrectly, with id)'
+/bin/bash ./system/create_with_id.sh ./data/new_post_with_id.json ./data/fetch_after_create.json
