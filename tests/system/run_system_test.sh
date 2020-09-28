@@ -23,10 +23,16 @@ fetch=$fetch2
 echo 'Update (correctly)'
 /bin/bash ./system/update.sh ./data/update_post_3.json $fetch 
 
-echo 'Update (mismatch id)'
+echo 'Update (incorrectly, with mismatched id)'
 /bin/bash ./system/update_mismatched_id.sh ./data/update_post_3.json $fetch 
 
-echo 'Update (unknown id)'
+echo 'Update (incorrectly, with unknown id)'
 /bin/bash ./system/update_unknown_id.sh ./data/update_post_100.json $fetch 
 
 fetch=$fetch3
+
+echo 'Delete (correctly)'
+/bin/bash ./system/delete.sh $fetch
+
+echo 'Delete (incorrectly, with unknown id)'
+/bin/bash ./system/delete_unknown_id.sh $fetch
