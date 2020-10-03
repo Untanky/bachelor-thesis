@@ -1,0 +1,5 @@
+/lib
+/node_modules
+
+Dockerfile
+docker-compose.y*ml
