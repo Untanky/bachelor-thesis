@@ -10,4 +10,4 @@ COPY ./dao /usr/src/dao
 
 WORKDIR /usr/src/laravel
 EXPOSE 8000
-CMD [ "php", "artisan", "serve" ]
+ENTRYPOINT [ "php", "artisan", "serve", "--host", "0.0.0.0" ]
