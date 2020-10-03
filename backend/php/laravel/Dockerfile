@@ -5,8 +5,8 @@ RUN set -ex \
     postgresql-dev
 RUN docker-php-ext-install pgsql pdo_pgsql
 
-COPY ./laravel /usr/src/laravel
 COPY ./dao /usr/src/dao
+COPY ./laravel /usr/src/laravel
 
 WORKDIR /usr/src/laravel
 EXPOSE 8000
