@@ -29,7 +29,7 @@ class Services extends CoreServices
         // $config = Setup::createXMLMetadataConfiguration(array(__DIR__."/config"), $isDevMode);
         // database configuration parameters
         $conn = array(
-            'url' => 'pdo-pgsql://root:root@localhost:5432/blog'
+            'url' => 'pdo-pgsql://root:root@database:5432/blog'
         );
 
         // obtaining the entity manager
