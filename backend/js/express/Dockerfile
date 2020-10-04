@@ -12,6 +12,8 @@ RUN yarn install
 
 COPY ./dao ./
 
+RUN yarn build
+
 # Create app directory
 WORKDIR /usr/src/app
 # Install app dependencies
@@ -29,4 +31,4 @@ COPY ./express ./
 
 EXPOSE 8080
 
-ENTRYPOINT [ "yarn", "start" ]
+CMD [ "yarn", "start" ]

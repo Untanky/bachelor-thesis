@@ -1,6 +1,0 @@
-/lib
-/node_modules
-/dev
-
-Dockerfile
-docker-compose.y*ml
