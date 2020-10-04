@@ -8,14 +8,14 @@ container=$3
 
 timeString="$container"
 
-docker stats --format "\t{{.MemUsage}}" $container >> benchmark/results/create_memory_$container.csv &
-
-pid=$!
-
 newPost=`cat ./data/new_post.json`
 
 for x in $(seq 1 $repititions);
 do
+  if [ $x = $warmupRepititions ]; then
+    docker stats --format "\t{{.MemUsage}}" $container >> benchmark/results/create_memory_$container.csv &
+    pid=$!
+  fi;
   result=( $(curl --silent -o /dev/null -w "%{time_total} %{http_code}" --request POST http://localhost:8080/api/blog/post --header 'Content-Type: application/json' --data-raw "$newPost") )
   time=${result[0]}
   status=${result[1]}

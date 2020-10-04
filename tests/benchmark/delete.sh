@@ -8,12 +8,12 @@ container=$3
 
 timeString="$container"
 
-docker stats --format "\t{{.MemUsage}}" $container >> benchmark/results/delete_memory_$container.csv &
-
-pid=$!
-
 for x in $(seq 1 $repititions);
 do
+  if [ $x = $warmupRepititions ]; then
+    docker stats --format "\t{{.MemUsage}}" $container >> benchmark/results/delete_memory_$container.csv &
+    pid=$!
+  fi;
   result=( $(curl --silent -o /dev/null -w "%{time_total} %{http_code}" --request DELETE http://localhost:8080/api/blog/post/"$x") )
   time=${result[0]}
   status=${result[1]}
