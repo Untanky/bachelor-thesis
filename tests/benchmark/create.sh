@@ -4,12 +4,15 @@ expectedStatus=204
 benchmarkRepititions=$1
 warmupRepititions=$2
 repititions=$(($benchmarkRepititions + $warmupRepititions))
-outFile=$3
-name=$4
+container=$3
+
+timeString="$container"
+
+docker stats --format "\t{{.MemUsage}}" $container >> benchmark/results/create_memory_$container.csv &
+
+pid=$!
 
 newPost=`cat ./data/new_post.json`
-
-printf "$name," >> $outFile
 
 for x in $(seq 1 $repititions);
 do
@@ -17,10 +20,14 @@ do
   time=${result[0]}
   status=${result[1]}
   if [ $status = $expectedStatus ]; then
-    printf "$time," >> $outFile;
+    if [ $x > $warmupRepititions ]; then
+      timeString="$timeString,$time"
+    fi;
   else
-    echo "wrong status; got $status, expected $expectedStatus"
+    echo wrong status; got $status, expected $expectedStatus
+    exit 1
   fi;
 done
 
-printf "\n" >> $outFile
+kill $pid
+echo $timeString >> benchmark/results/create_time.csv
