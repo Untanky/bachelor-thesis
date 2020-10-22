@@ -34,7 +34,7 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
   try {
     const { postId } = req.params;
-    await PostDAO.delete(postId);
+    await PostDAO.remove(postId);
     res.send(204);
   } catch (error) {
     res.send(404, '');

@@ -195,9 +195,9 @@ describe('blog post handler', () => {
 
   describe('delete a post', () => {
     it('should delete an existing post', async () => {
-      const deleteSpy = sinon.spy();
+      const removeSpy = sinon.spy();
       mock(pathToDAO, {
-        delete: deleteSpy,
+        remove: removeSpy,
       });
 
       const postId = 3;
@@ -214,14 +214,14 @@ describe('blog post handler', () => {
 
       await deletePost(requestMock, responseMock);
 
-      expect(deleteSpy).to.have.been.calledOnceWith(postId);
+      expect(removeSpy).to.have.been.calledOnceWith(postId);
       expect(responseMock.sendStatus).to.have.been.calledOnceWith(204);
     });
 
     it('should send status 404 when post with id doesn\'t exist', async () => {
-      const deleteSpy = sinon.spy(() => { throw new Error(); });
+      const removeSpy = sinon.spy(() => { throw new Error(); });
       mock(pathToDAO, {
-        delete: deleteSpy,
+        remove: removeSpy,
       });
 
       const postId = 3;
@@ -239,7 +239,7 @@ describe('blog post handler', () => {
 
       await deletePost(requestMock, responseMock);
 
-      expect(deleteSpy).to.have.been.calledOnceWith(postId);
+      expect(removeSpy).to.have.been.calledOnceWith(postId);
       expect(responseMock.status).to.have.been.calledOnceWith(404);
       expect(responseMock.send).to.have.been.calledOnce;
     });

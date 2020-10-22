@@ -7,6 +7,6 @@ namespace asp_net
   internal class PostContext : PostDBDAO.PostContext
   {
     protected override void OnConfiguring(DbContextOptionsBuilder options)
-      =>  options.UseNpgsql("Host=localhost;Database=blog;Username=root;Password=root");
+      =>  options.UseNpgsql("Host=database;Database=blog;Username=root;Password=root");
   }
 }

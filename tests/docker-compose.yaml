@@ -1,0 +1,87 @@
+version: "3.7"
+services:
+  database:
+    hostname: database
+    container_name: database
+    image: postgres
+    ports:
+      - 5432:5432
+    networks:
+      - test_bachelor
+    volumes:
+      - ../database/scripts:/docker-entrypoint-initdb.d
+    environment: 
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+  spring: 
+    hostname: spring
+    container_name: test_spring
+    build: 
+      context: ../backend/java/spring
+    ports:
+      - 8081:8080
+    networks: 
+      - test_bachelor
+  jersey: 
+    hostname: jersey
+    container_name: test_jersey
+    build: 
+      context: ../backend/java/jaxrs
+    ports:
+      - 8082:8080
+    networks: 
+      - test_bachelor
+  laravel: 
+    hostname: laravel
+    container_name: test_laravel
+    build: 
+      context: ../backend/php
+      dockerfile: laravel/Dockerfile
+    ports:
+      - 8083:8000
+    networks: 
+      - test_bachelor
+  code-igniter: 
+    hostname: code-igniter
+    container_name: test_code-igniter
+    build: 
+      context: ../backend/php
+      dockerfile: code-igniter/Dockerfile
+    ports:
+      - 8084:8080
+    networks: 
+      - test_bachelor
+  express: 
+    hostname: express
+    container_name: test_express
+    build: 
+      context: ../backend/js
+      dockerfile: express/Dockerfile
+    ports:
+      - 8085:8080
+    networks: 
+      - test_bachelor
+  restify: 
+    hostname: restify
+    container_name: test_restify
+    build: 
+      context: ../backend/js
+      dockerfile: restify/Dockerfile
+    ports:
+      - 8086:8080
+    networks: 
+      - test_bachelor
+  asp-net: 
+    hostname: asp-net
+    container_name: test_asp-net
+    build: 
+      context: ../backend/csharp
+      dockerfile: asp-net/Dockerfile
+    ports:
+      - 8087:80
+    networks: 
+      - test_bachelor
+networks: 
+  test_bachelor:
+
+

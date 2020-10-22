@@ -8,7 +8,7 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "post_generator")
-    @SequenceGenerator(name = "post_generator", sequenceName = "post_id_seq", schema = "public")
+    @SequenceGenerator(name = "post_generator", sequenceName = "post_id_seq", schema = "public", allocationSize = 1)
     @Column(name = "id", unique = true)
     private long id;
 

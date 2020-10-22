@@ -38,7 +38,8 @@ export const updatePost = async (req, res) => {
 export const deletePost = async (req, res) => {
   try {
     const { postId } = req.params;
-    await PostDAO.delete(postId);
+    console.log(postId);
+    await PostDAO.remove(postId);
     res.sendStatus(204);
   } catch (error) {
     res.status(404);
