@@ -31,7 +31,10 @@ do
       timeString="$timeString,$time"
     fi;
   else
-    echo wrong status; got $status, expected $expectedStatus
+    echo "wrong status; got $status, expected $expectedStatus"
+    echo "$x"
+    kill $pid
+    docker-compose down
     exit 1
   fi;
 done

@@ -6,7 +6,7 @@ warmupRepititions=$2
 repititions=$(($benchmarkRepititions+$warmupRepititions))
 container=$3
 
-port=$(./benchmark/bring_up_container.sh $container)
+port=`./benchmark/bring_up_container.sh $container`
 
 timeString="$container"
 
@@ -24,7 +24,9 @@ do
       timeString="$timeString,$time"
     fi;
   else
-    echo wrong status. got $status, expected $expectedStatus
+    echo "wrong status; got $status, expected $expectedStatus"
+    kill $pid
+    docker-compose down
     exit 1
   fi;
 done

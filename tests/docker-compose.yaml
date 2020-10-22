@@ -38,7 +38,7 @@ services:
       context: ../backend/php
       dockerfile: laravel/Dockerfile
     ports:
-      - 8083:8080
+      - 8083:8000
     networks: 
       - test_bachelor
   code-igniter: 
@@ -78,7 +78,7 @@ services:
       context: ../backend/csharp
       dockerfile: asp-net/Dockerfile
     ports:
-      - 8087:8080
+      - 8087:80
     networks: 
       - test_bachelor
 networks: 

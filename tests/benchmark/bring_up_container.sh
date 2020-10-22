@@ -4,6 +4,8 @@ serviceName=$1
 
 docker-compose up -d database $serviceName
 
+sleep 5
+
 case $serviceName in
 spring)
   echo 8081
