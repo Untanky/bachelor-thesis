@@ -4,7 +4,10 @@ sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../../../dao/src"))
 from Post import Post
 
 
-class PostSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Post
-        fields = ('id', 'titel', 'description')
+class PostSerializer(serializers.BaseSerializer):
+    def to_representation(self, instance):
+        return {
+            'id': instance.id,
+            'title': instance.title,
+            'description': instance.description
+        }
