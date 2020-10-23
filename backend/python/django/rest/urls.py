@@ -19,5 +19,6 @@ sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/blog"))
 import views
 
 urlpatterns = [
-    url(r'^api/blog/post/$', views.post_collection, name='collection')
+    url(r'^api/blog/post$', views.post, name='post'),
+    url(r'^api/blog/post/(?P<id>\d*)$', views.post_by_id, name='post_by_id'),
 ]

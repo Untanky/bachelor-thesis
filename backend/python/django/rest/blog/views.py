@@ -17,13 +17,56 @@ postDAO = PostDAO(create_engine("postgres://root:root@localhost:5432/blog"))
 #     return render(request, 'talk/index.html', tmpl_vars)
 
 
-@api_view(['GET'])
-def post_collection(request):
+@api_view(['GET', 'POST'])
+def post(request):
     if request.method == 'GET':
-        posts = postDAO.findAll()
-        serializer = PostSerializer(posts, many=True)
-        return Response(serializer.data)
+        return fetchAllPosts(request)
+    if request.method == 'POST':
+        return createPost(request)
 
+def fetchAllPosts(request):
+    posts = postDAO.findAll()
+    serializer = PostSerializer(posts, many=True)
+    return Response(serializer.data)
+
+def createPost(request):
+    serializer = PostSerializer(data=request.data)
+    if serializer.is_valid():
+        try:
+            postDAO.create(serializer.validated_data)
+        except Exception as identifier:
+            return Response(status = 400)
+        return Response(status = 204)
+    else:
+        return Response(status = 400)
+
+@api_view(['PUT', 'DELETE'])
+def post_by_id(request, id):
+    if request.method == 'PUT':
+        return updatePost(id, request)
+    if request.method == 'DELETE':
+        return deletePost(id, request)
+
+def updatePost(id, request):
+    serializer = PostSerializer(data=request.data)
+    if serializer.is_valid():
+        post = serializer.validated_data
+        if id != post.id:
+            return Response(status = 400)
+        try:
+            postDAO.update(post)
+        except Exception as identifier:
+            return Response(status = 404)
+        return Response(status = 204)
+    else:
+        return Response(status = 400)
+
+def deletePost(id, request):
+    try:
+        postDAO.delete(id)
+        return Response(status = 204)
+    except:
+        return Response(status = 404)
 
 # @api_view(['GET'])
 # def post_element(request, pk):

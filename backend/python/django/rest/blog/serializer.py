@@ -11,3 +11,9 @@ class PostSerializer(serializers.BaseSerializer):
             'title': instance.title,
             'description': instance.description
         }
+    
+    def to_internal_value(self, instance):
+        if 'id' in instance.keys():
+            return Post(id = instance['id'], title = instance['title'], description = instance['description'])
+        else:
+            return Post(title = instance['title'], description = instance['description'])
