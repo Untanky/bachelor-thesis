@@ -4,9 +4,6 @@ from Exception import IllegalArgumentException, UnknownElementException
 
 class PostDAO(object):
   def __init__(self, engine, schema = None):
-    if engine is None:
-      raise EnvironmentError("Database Engine not specified")
-
     self.engine = engine
     Session = sessionmaker(bind = engine)
     self.session = Session()
