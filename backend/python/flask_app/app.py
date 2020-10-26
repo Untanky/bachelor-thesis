@@ -1,6 +1,6 @@
 from flask import Flask, request, make_response, jsonify
 from sqlalchemy import create_engine
-from flask_app.controller import PostController, response_with_status_code
+from controller import PostController, response_with_status_code
 import sys, os
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../dao/src"))
 from Exception import IllegalArgumentException, UnknownElementException
@@ -9,7 +9,7 @@ from Post import Post
 
 app = Flask(__name__)
 
-postDAO = PostDAO(create_engine("postgres://root:root@localhost:5432/blog"))
+postDAO = PostDAO(create_engine("postgres://root:root@database:5432/blog"))
 controller = PostController(postDAO)
 
 @app.route("/api/blog/post", methods=['GET', 'POST'])
@@ -29,3 +29,6 @@ def post_by_id(postId):
     return controller.deletePost(postId)
   else:
     return response_with_status_code(404)
+
+if __name__ == "__main__":
+  app.run(host = '0.0.0.0')

@@ -5,7 +5,7 @@ import sys, os
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../../../dao/src"))
 from PostDAO import PostDAO
 
-postDAO = PostDAO(create_engine("postgres://root:root@localhost:5432/blog"))
+postDAO = PostDAO(create_engine("postgres://root:root@database:5432/blog"))
 postController = PostController(postDAO)
 
 @api_view(['GET', 'POST'])

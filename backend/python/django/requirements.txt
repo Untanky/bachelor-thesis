@@ -1,0 +1,4 @@
+sqlalchemy
+django
+djangorestframework
+psycopg2
