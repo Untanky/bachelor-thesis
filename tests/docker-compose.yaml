@@ -81,6 +81,16 @@ services:
       - 8087:80
     networks: 
       - test_bachelor
+  flask: 
+    hostname: flask
+    container_name: test_flask
+    build: 
+      context: ../backend/python
+      dockerfile: flask_app/Dockerfile
+    ports:
+      - 8088:5000
+    networks: 
+      - test_bachelor
 networks: 
   test_bachelor:
 
