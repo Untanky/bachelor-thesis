@@ -1,4 +1,4 @@
 sqlalchemy
 django
-djangorest
+djangorestframework
 psycopg2

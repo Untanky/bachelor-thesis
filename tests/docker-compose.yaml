@@ -91,6 +91,16 @@ services:
       - 8088:5000
     networks: 
       - test_bachelor
+  django: 
+    hostname: django
+    container_name: test_django
+    build: 
+      context: ../backend/python
+      dockerfile: django/Dockerfile
+    ports:
+      - 8089:8000
+    networks: 
+      - test_bachelor
 networks: 
   test_bachelor:
 
