@@ -1,6 +1,6 @@
 from flask import Flask, request, make_response, jsonify
 from sqlalchemy import create_engine
-from controller import PostController, response_with_status_code
+from flask_app.controller import PostController, response_with_status_code
 import sys, os
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../dao/src"))
 from Exception import IllegalArgumentException, UnknownElementException

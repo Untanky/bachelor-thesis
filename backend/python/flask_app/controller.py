@@ -1,5 +1,5 @@
-from flask import request, make_response, jsonify
 import sys, os
+from flask import request, make_response, jsonify
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../dao/src"))
 from Exception import IllegalArgumentException, UnknownElementException
 from Post import Post
