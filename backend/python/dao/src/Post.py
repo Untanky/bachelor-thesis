@@ -9,5 +9,12 @@ class Post(Base):
   title = Column(String)
   description = Column(String)
 
+  def serialize(self):
+    return {
+        'id': self.id, 
+        'title': self.title,
+        'description': self.description,
+    }
+
   def __eq__(self, other):
     return (self.title == other.title) & (self.description == other.description)

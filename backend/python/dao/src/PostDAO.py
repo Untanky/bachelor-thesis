@@ -4,9 +4,6 @@ from Exception import IllegalArgumentException, UnknownElementException
 
 class PostDAO(object):
   def __init__(self, engine, schema = None):
-    if engine is None:
-      raise EnvironmentError("Database Engine not specified")
-
     self.engine = engine
     Session = sessionmaker(bind = engine)
     self.session = Session()
@@ -28,11 +25,11 @@ class PostDAO(object):
     self.session.commit()
     self.session.flush()
     fetchedPost3 = self.session.query(Post.Post).get(post.id)
-    print(fetchedPost3.id, fetchedPost3.title, fetchedPost3.description)
 
   def delete(self, postId):
     fetchedPost = self.session.query(Post.Post).get(postId)
     if (fetchedPost is None):
       raise UnknownElementException()
     self.session.delete(fetchedPost)
+    self.session.commit()
     self.session.flush()
