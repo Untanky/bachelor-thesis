@@ -25,11 +25,11 @@ class PostDAO(object):
     self.session.commit()
     self.session.flush()
     fetchedPost3 = self.session.query(Post.Post).get(post.id)
-    print(fetchedPost3.id, fetchedPost3.title, fetchedPost3.description)
 
   def delete(self, postId):
     fetchedPost = self.session.query(Post.Post).get(postId)
     if (fetchedPost is None):
       raise UnknownElementException()
     self.session.delete(fetchedPost)
+    self.session.commit()
     self.session.flush()
