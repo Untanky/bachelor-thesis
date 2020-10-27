@@ -28,4 +28,10 @@ restify)
 asp-net)
   echo 8087
   ;;
+flask)
+  echo 8088
+  ;;
+django)
+  echo 8089
+  ;;
 esac;

@@ -3,11 +3,13 @@
 services=(
   # spring
   # jersey
-  laravel
-  code-igniter
+  # laravel
+  # code-igniter
   # express
   # restify
   # asp-net
+  django
+  flask
 )
 
 for service in "${services[@]}"; do

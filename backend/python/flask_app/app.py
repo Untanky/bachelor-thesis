@@ -8,6 +8,7 @@ from PostDAO import PostDAO
 from Post import Post
 
 app = Flask(__name__)
+app.config['JSON_SORT_KEYS'] = False
 
 postDAO = PostDAO(create_engine("postgres://root:root@database:5432/blog"))
 controller = PostController(postDAO)

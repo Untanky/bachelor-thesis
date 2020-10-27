@@ -9,7 +9,8 @@ class PostSerializer(serializers.BaseSerializer):
         return {
             'id': instance.id,
             'title': instance.title,
-            'description': instance.description
+            'description': instance.description,
+            'url': "/post/" + str(instance.id)
         }
     
     def to_internal_value(self, instance):

@@ -8,6 +8,8 @@ services=(
   express
   restify
   asp-net
+  django
+  flask
 )
 
 for service in "${services[@]}"; do

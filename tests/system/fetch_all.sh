@@ -4,9 +4,12 @@ data=`cat $1`
 port=$2
 outputfile=./response.txt
 
+echo PORT $port
+
 # Get all posts
 status=$(curl -s -o "$outputfile" -w "%{http_code}" http://localhost:$port/api/blog/post)
 response=$(cat "$outputfile")
+# status=$(curl http://localhost:$port/api/blog/post)
 rm $outputfile
 touch $outputfile
 

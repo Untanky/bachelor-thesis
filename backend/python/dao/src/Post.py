@@ -14,6 +14,7 @@ class Post(Base):
         'id': self.id, 
         'title': self.title,
         'description': self.description,
+        'url': '/post/' + str(self.id)
     }
 
   def __eq__(self, other):
