@@ -1,9 +1,10 @@
 #!/bin/bash
 
 updatePost=`cat $1`
+port=$3
 postId=100
 
-status=$(curl -s -w "%{http_code}" --request PUT 'localhost:8080/api/blog/post/'$postId --header 'Content-Type: application/json' --data-raw "$updatePost")
+status=$(curl -s -w "%{http_code}" --request PUT localhost:$port/api/blog/post/$postId --header 'Content-Type: application/json' --data-raw "$updatePost")
 
 expectedStatus=404
 
@@ -12,4 +13,4 @@ if [ $status != $expectedStatus ]; then
   exit 1
 fi;
 
-source ./system/fetch_all.sh $2
+source ./system/fetch_all.sh $2 $port

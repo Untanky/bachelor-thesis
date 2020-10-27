@@ -18,6 +18,8 @@ namespace dao.models {
     [Column("description")]
     public string Description { get; set; }
 
+    public string Url { get { return "/post/" + Id; } }
+
     public Post() {
 
     }

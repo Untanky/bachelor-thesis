@@ -46,7 +46,15 @@ describe('PostDAO', () => {
       const PostDAO = mock.reRequire(pathToDAO);
 
       const actualPostlist = await PostDAO.findAll();
-      expect(actualPostlist).to.be.equal(postlist);
+      const actual = JSON.stringify(actualPostlist);
+      const expectedPostlist = postlist.map(({ id, title, description }) => ({
+        id,
+        title,
+        description,
+        url: `/post/${id}`,
+      }));
+      const expected = JSON.stringify(expectedPostlist);
+      expect(expected).to.equal(actual);
     });
   });
 

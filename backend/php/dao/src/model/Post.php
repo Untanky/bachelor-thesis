@@ -77,7 +77,7 @@ class Post implements \JsonSerializable
     }
 
     public function getUrl() {
-        return "/api/blog/post/" . $this->getId();
+        return trim('/post/') . $this->getId();
     }
 
     public function jsonSerialize()

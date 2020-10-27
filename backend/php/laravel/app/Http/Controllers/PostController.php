@@ -21,7 +21,7 @@ class PostController extends Controller {
     }
 
     function fetchAll() {
-        return $this->dao->findAll();
+        return json_encode($this->dao->findAll(), JSON_UNESCAPED_SLASHES);
     }
 
     function createPost(Request $request) {

@@ -1,6 +1,9 @@
 import Post from '../models/Post';
 
-export const findAll = async () => Post.findAll();
+export const findAll = async () => (
+  await Post.findAll()).map(({ id, title, description }) => ({
+  id, title, description, url: `/post/${id}`,
+}));
 
 export const create = async (post) => {
   if (post.id) {

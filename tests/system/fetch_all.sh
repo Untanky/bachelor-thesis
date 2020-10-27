@@ -1,12 +1,14 @@
 #!/bin/bash
 
 data=`cat $1`
+port=$2
 outputfile=./response.txt
 
 # Get all posts
-status=$(curl -s -o "$outputfile" -w "%{http_code}" http://localhost:8080/api/blog/post)
+status=$(curl -s -o "$outputfile" -w "%{http_code}" http://localhost:$port/api/blog/post)
 response=$(cat "$outputfile")
 rm $outputfile
+touch $outputfile
 
 if [ "$status" != 200 ]; then
   echo status code incorrect: $status supposed to be 204
