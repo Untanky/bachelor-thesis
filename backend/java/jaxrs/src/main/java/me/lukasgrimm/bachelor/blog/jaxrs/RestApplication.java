@@ -11,6 +11,9 @@ public class RestApplication extends ResourceConfig {
     public RestApplication() {
         
         register(new DependencyBinder());
-        packages("me.lukasgrimm.bachelor.blog.jaxrs.controller");
+        packages(
+                "me.lukasgrimm.bachelor.blog.jaxrs.controller",
+                "me.lukasgrimm.bachelor.blog.jaxrs.filter"
+        );
     }
 }

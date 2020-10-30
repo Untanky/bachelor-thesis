@@ -1,6 +1,11 @@
 [
-  { "value": "DEFAULT", "text": "Default (:8000)", "port": 8000 },
-  { "value": "JAVA_SPRING", "text": "Java - Spring (:8080)", "port": 8080 },
-  { "value": "JAVA_JAXRS", "text": "Java - JAXRS (:8081)", "port": 8081 },
-  { "value": "CSHARP_ASPNET", "text": "C# - ASP.NET (:8082)", "port": 8082 }
+  { "value": "JAVA_SPRING", "text": "Java - Spring (:8081)", "port": 8081 },
+  { "value": "JAVA_JERSEY", "text": "Java - Jersey (:8082)", "port": 8082 },
+  { "value": "PHP_LARAVEL", "text": "PHP - Laravel (:8083)", "port": 8083 },
+  { "value": "PHP_CODEIGNITER", "text": "PHP - CodeIgniter (:8084)", "port": 8084 },
+  { "value": "JAVASCRIPT_EXPRESS", "text": "JavaScript - Express (:8085)", "port": 8085 },
+  { "value": "JAVASCRIPT_RESTIFY", "text": "JavaScript - Restify (:8086)", "port": 8086 },
+  { "value": "CSHARP_ASPNET", "text": "C# - ASP.NET (:8087)", "port": 8087 },
+  { "value": "PYTHON_FLASK", "text": "Python - Flask (:8088)", "port": 8088 },
+  { "value": "PYTHON_DJANGO", "text": "Python - Django (:8089)", "port": 8089 }
 ]
