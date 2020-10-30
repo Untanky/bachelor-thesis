@@ -13,7 +13,7 @@ timeString="$container"
 for x in $(seq 1 $repititions);
 do
   if [ $x = $warmupRepititions ]; then
-    docker stats --format "\t{{.MemUsage}}" test_$container >> benchmark/results/fetch_all_memory_$container.csv &
+    docker stats --format "\t{{.MemUsage}}" test_$container >> ./results/fetch_all_memory_$container.csv &
     pid=$!
   fi;
   result=( $(curl --silent -o /dev/null -w "%{time_total} %{http_code}" http://localhost:$port/api/blog/post) )
@@ -35,4 +35,4 @@ kill $pid
 
 docker-compose down
 
-echo $timeString >> results/fetch_all_time.csv
+echo $timeString >> ./results/fetch_all_time.csv

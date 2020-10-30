@@ -15,7 +15,7 @@ newPost=`cat ./data/new_post.json`
 for x in $(seq 1 $repititions);
 do
   if [ $x = $warmupRepititions ]; then
-    docker stats --format "\t{{.MemUsage}}" test_$container >> benchmark/results/create_memory_$container.csv &
+    docker stats --format "\t{{.MemUsage}}" test_$container >> ./results/create_memory_$container.csv &
     pid=$!
   fi;
   result=( $(curl --silent -o /dev/null -w "%{time_total} %{http_code}" --request POST http://localhost:$port/api/blog/post --header 'Content-Type: application/json' --data-raw "$newPost") )
@@ -37,4 +37,4 @@ kill $pid
 
 docker-compose down
 
-echo $timeString >> results/create_time.csv
+echo $timeString >> ./results/create_time.csv
