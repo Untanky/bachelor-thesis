@@ -35,4 +35,4 @@ kill $pid
 
 docker-compose down
 
-echo $timeString >> benchmark/results/fetch_all_time.csv
+echo $timeString >> results/fetch_all_time.csv

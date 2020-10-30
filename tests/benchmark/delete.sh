@@ -43,4 +43,4 @@ kill $pid
 
 docker-compose down
 
-echo $timeString >> benchmark/results/delete_time.csv
+echo $timeString >> results/delete_time.csv

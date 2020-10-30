@@ -37,4 +37,4 @@ kill $pid
 
 docker-compose down
 
-echo $timeString >> benchmark/results/update_time.csv
+echo $timeString >> results/update_time.csv
