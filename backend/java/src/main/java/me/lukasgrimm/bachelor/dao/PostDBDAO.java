@@ -22,7 +22,9 @@ public class PostDBDAO implements PostDAO {
         try {
             entityManager = entityManagerFactory.createEntityManager();
             Query query = entityManager.createQuery("SELECT p FROM Post p");
-            return query.getResultList();
+            List<Post> list = query.getResultList();
+            list.sort((postA, postB) -> (int)(postA.getId() - postB.getId()));
+            return list;
         } finally {
             if (entityManager != null) {
                 entityManager.close();
