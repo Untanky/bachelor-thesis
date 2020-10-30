@@ -22,6 +22,8 @@ class BlogController extends ResourceController
     public function __construct()
     {
         $this->dao = Services::dao();
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: *");
     }
 
     function fetchAll()
