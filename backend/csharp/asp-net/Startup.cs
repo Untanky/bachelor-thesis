@@ -30,6 +30,17 @@ namespace asp_net
 
             services.AddScoped<PostDAO, PostDBDAO>();
 
+            services.AddCors(options => 
+            {
+                options.AddDefaultPolicy(
+                    builder => 
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddControllers();
         }
 
@@ -41,11 +52,13 @@ namespace asp_net
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
