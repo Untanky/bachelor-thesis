@@ -25,7 +25,7 @@ class PostController:
         serializer = PostSerializer(data=request.data)
         if serializer.is_valid():
             post = serializer.validated_data
-            if id != post.id:
+            if int(id, 10) != post.id:
                 return Response(status = 400)
             try:
                 self.postDAO.update(post)

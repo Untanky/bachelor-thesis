@@ -47,10 +47,7 @@ class PostDBDAO implements PostDAO
             throw new \exception\IllegalArgumentException();
         }
 
-        $managedPost->setTitle($post->getTitle());
-        $managedPost->setDescription($post->getDescription());
-
-        $this->entityManager->refresh($managedPost);
+        $this->entityManager->merge($post);
         $this->entityManager->flush();
     }
 

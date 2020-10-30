@@ -21,7 +21,7 @@ export const updatePost = async (req, res) => {
     const post = req.body;
     const { postId } = req.params;
 
-    if (post.id !== postId) {
+    if (post.id !== Number.parseInt(postId, 10)) {
       res.status(400);
       res.send('');
       return;

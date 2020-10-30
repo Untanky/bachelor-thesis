@@ -7,9 +7,7 @@ status=$(curl -s -w "%{http_code}" --request DELETE localhost:$port/api/blog/pos
 
 expectedStatus=404
 
-if [ $status != $expectedStatus ]; then
-  echo status code incorrect: $status supposed to be $expectedStatus
-  exit 1
-fi;
+./common/check_status_code.sh "$status" "$expectedStatus"
+[[ $? -ne 0 ]] && exit 1
 
 source ./system/fetch_all.sh $1 $port
