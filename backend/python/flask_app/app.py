@@ -1,4 +1,5 @@
 from flask import Flask, request, make_response, jsonify
+from flask_cors import CORS
 from sqlalchemy import create_engine
 from controller import PostController, response_with_status_code
 import sys, os
@@ -9,6 +10,7 @@ from Post import Post
 
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+CORS(app)
 
 postDAO = PostDAO(create_engine("postgres://root:root@database:5432/blog"))
 controller = PostController(postDAO)
