@@ -20,7 +20,9 @@ namespace dao {
     }
 
     public async Task<List<Post>> FindAll() {
-      return await db.Posts.ToListAsync<Post>();
+      var list = await db.Posts.ToListAsync<Post>();
+      list.Sort((postA, postB) => postA.Id - postB.Id);
+      return list;
     }
 
     public void Create(Post post) {
