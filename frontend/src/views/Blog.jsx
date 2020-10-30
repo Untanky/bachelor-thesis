@@ -10,7 +10,7 @@ const Blog = () => {
   const [postList, setPostList] = useState([]);
   const port = useSelector(state => state.languageSelector.port);
 
-  Axios.get(`http:localhost:${port}/api/blog/post`)
+  Axios.get(`http://localhost:${port}/api/blog/post`)
     .then((res) => setPostList(res.data))
     .catch((reason) => console.log(reason));
 
