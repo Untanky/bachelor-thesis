@@ -17,7 +17,8 @@ services:
     hostname: spring
     container_name: test_spring
     build: 
-      context: ../backend/java/spring
+      context: ../backend/java
+      dockerfile: spring/Dockerfile
     ports:
       - 8081:8080
     networks: 
@@ -26,7 +27,8 @@ services:
     hostname: jersey
     container_name: test_jersey
     build: 
-      context: ../backend/java/jaxrs
+      context: ../backend/java
+      dockerfile: jaxrs/Dockerfile
     ports:
       - 8082:8080
     networks: 
