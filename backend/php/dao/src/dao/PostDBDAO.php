@@ -16,10 +16,17 @@ class PostDBDAO implements PostDAO
         $this->entityManager = $entityManager;
     }
 
+    static function compareById($a, $b)
+    {
+        return $a->getId() - $b->getId();
+    }
+
     function findAll()
     {
         $postRepository = $this->entityManager->getRepository('\model\Post');
-        return $postRepository->findAll();
+        $list = $postRepository->findAll();
+        usort($list, '\dao\PostDBDAO::compareById');
+        return $list;
     }
 
     function create(Post $post)
