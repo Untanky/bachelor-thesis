@@ -21,19 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/dao/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dao/src/model/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/dao/src/model/Post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/routes.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer.phar" interpreterId="51d1bf80-47be-4225-a9a3-29ab70b82fbd" />
@@ -169,8 +163,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Codeception.PostDBDAOTest.php::testDelete" />
       <item itemvalue="Codeception.Run Unit Tests" />
+      <item itemvalue="Codeception.PostDBDAOTest.php::testDelete" />
       <item itemvalue="PHPUnit.phpunit.xml" />
     </list>
     <recent_temporary>
@@ -189,6 +183,7 @@
       <updated>1598547110412</updated>
       <workItem from="1598547111925" duration="14153000" />
       <workItem from="1598862625276" duration="7874000" />
+      <workItem from="1604050538937" duration="246000" />
     </task>
     <servers />
   </component>
