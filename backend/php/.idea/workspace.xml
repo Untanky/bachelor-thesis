@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/code-igniter/app/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/code-igniter/app/Controllers/BlogController.php" afterDir="false" />
-    </list>
+    <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment=""/>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -181,9 +179,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598547110412</updated>
-      <workItem from="1598547111925" duration="14153000" />
-      <workItem from="1598862625276" duration="7874000" />
-      <workItem from="1604050538937" duration="413000" />
     </task>
     <servers />
   </component>

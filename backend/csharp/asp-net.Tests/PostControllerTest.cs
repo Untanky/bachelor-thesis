@@ -40,15 +40,15 @@ namespace asp_net.Tests
         }
 
         [Test]
-        public void TestFetchAllPosts()
+        public async Task TestFetchAllPosts()
         {
             var mock = new Mock<PostDAO>();
             mock
                 .Setup(dao => dao.FindAll())
-                .Returns(new Task<List<Post>>(() => postList));
+                .Returns(Task.FromResult(postList));
             var postController = new PostController(mock.Object);
             
-            var actualPostList = postController.FetchAllPosts();
+            var actualPostList = await postController.FetchAllPosts();
 
             mock.Verify((dao) => dao.FindAll());
             Assert.AreEqual(postList, actualPostList);

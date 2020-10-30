@@ -2,6 +2,9 @@ from sqlalchemy.orm import sessionmaker
 import Post
 from Exception import IllegalArgumentException, UnknownElementException
 
+def takeId(elem):
+  return elem.id
+
 class PostDAO(object):
   def __init__(self, engine, schema = None):
     self.engine = engine
@@ -9,7 +12,7 @@ class PostDAO(object):
     self.session = Session()
   
   def findAll(self):
-    return self.session.query(Post.Post).all()
+    return sorted(self.session.query(Post.Post).all(), key=takeId)
 
   def create(self, post):
     if (post.id is not None):
