@@ -4,7 +4,7 @@ serviceName=$1
 
 docker-compose up -d database $serviceName
 
-sleep 5
+sleep 10
 
 case $serviceName in
 spring)
