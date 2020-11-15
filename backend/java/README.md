@@ -1,30 +1,29 @@
-# Python Implementierungen
+# Java Implementierungen
 
-Dieser Ordner enthält die Python Implementierungen.
+Dieser Ordner enthält die Java Implementierungen.
 
 ## Starten ohne Docker
 
-Es werden Python 3 und PiP benötigt.
+Es werden JDK und Maven benötigt.
 
-### Django 
+### Spring 
 
-0. Terminal im Django-Ordner öffnen (`./django`).
-1. (optional) Virtuelle Python Umgebung erzeugen.
-   1. `python3 -m venv env` (Umgebung erzeugen)
-   2. `source env/bin/activate` (Umgebung aktivieren)
-2. `pip install requirements`
-3. In der Datei `./django/rest/blog/views.py` Zeile 8: Datenbank-URL durch aktualisierte Datenbank-URL ersetzten, z.B. `postgres://<user>:<passwd>@localhost:5432/blog`.
-4. `python manage.py runserver 0.0.0.0:8000` (Startet das REST-Anwendung auf Port `8000`)
+1. Terminal im Java-Ordner öffnen (`./`).
+2. `mvn clean install` (DAO lokal installieren)
+3. `cd spring`
+4. In der Datei `./spring/src/main/resources/META-INF/persistence.xml` Zeilen 11-13: Datenbank-URL durch aktualisierte Datenbank-URL ersetzten, z.B. `postgres://<user>:<passwd>@localhost:5432/blog`.
+5. `mvn clean package`
+6. `java --jar ./string/target/spring-blog-0.1.0.jar` (Startet das REST-Anwendung auf Port `8080`)
 
-### Flask 
+### Jersey
 
-0. Terminal im Django-Ordner öffnen (`./django`).
-1. (optional) Virtuelle Python Umgebung erzeugen.
-   1. `python3 -m venv env` (Umgebung erzeugen)
-   2. `source env/bin/activate` (Umgebung aktivieren)
-2. `pip install requirements`
-3. In der Datei `./flask_app/app.py` Zeile 15: Datenbank-URL durch aktualisierte Datenbank-URL ersetzten, z.B. `postgres://<user>:<passwd>@localhost:5432/blog`.
-4. `python app.py` (Startet das REST-Anwendung auf Port `5000`)
+1. Tomcat installieren
+2. Terminal im Java-Ordner öffnen (`./`).
+3. `mvn clean install` (DAO lokal installieren)
+4. `cd jaxrs`
+5. In der Datei `./jaxrs/src/main/resources/META-INF/persistence.xml` Zeilen 11-13: Datenbank-URL durch aktualisierte Datenbank-URL ersetzten, z.B. `postgres://<user>:<passwd>@localhost:5432/blog`.
+6. `mvn clean package`
+7. `./jaxrs/target/jaxrs.blog-0.1.0` in webapp-Ordner einer Tomcat Anwendung kopieren.
 
 ## Unit-Tests
 
@@ -32,27 +31,15 @@ Es werden Python 3 und PiP benötigt.
 
 ### DAO 
 
-0. Terminal im Django-Ordner öffnen (`./django`).
-1. (optional) Virtuelle Python Umgebung erzeugen.
-   1. `python3 -m venv env` (Umgebung erzeugen)
-   2. `source env/bin/activate` (Umgebung aktivieren)
-2. `pip install SQLAlchemy test/TestPostDAO`
-3. `pytest tests/TestPostDAO.py`
+0. Terminal im Java-Ordner öffnen (`.`).
+1. `mvn clean test`
 
-### Django 
+### Spring 
 
-0. Terminal im Django-Ordner öffnen (`./django`).
-1. (optional) Virtuelle Python Umgebung erzeugen.
-   1. `python3 -m venv env` (Umgebung erzeugen)
-   2. `source env/bin/activate` (Umgebung aktivieren)
-2. `pip install requirements`
-3. `python manage.py test`
+0. Terminal im Spring-Ordner öffnen (`./spring`).
+1. `mvn clean test`
 
-### Flask 
+### Jersey 
 
-0. Terminal im Django-Ordner öffnen (`./django`).
-1. (optional) Virtuelle Python Umgebung erzeugen.
-   1. `python3 -m venv env` (Umgebung erzeugen)
-   2. `source env/bin/activate` (Umgebung aktivieren)
-2. `pip install requirements`
-3. `pytest test_controller.py`
+0. Terminal im Jersey-Ordner öffnen (`./jaxrs`).
+1. `mvn clean test`
