@@ -7,103 +7,110 @@ services:
     ports:
       - 5432:5432
     networks:
-      - test_bachelor
+      - bachelor
     volumes:
-      - ../database/scripts:/docker-entrypoint-initdb.d
+      - ./database/scripts:/docker-entrypoint-initdb.d
     environment: 
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
   spring: 
     hostname: spring
-    container_name: test_spring
+    container_name: spring
     build: 
-      context: ../backend/java
+      context: ./backend/java
       dockerfile: spring/Dockerfile
     ports:
       - 8081:8080
     networks: 
-      - test_bachelor
+      - bachelor
   jersey: 
     hostname: jersey
-    container_name: test_jersey
+    container_name: jersey
     build: 
-      context: ../backend/java
+      context: ./backend/java
       dockerfile: jaxrs/Dockerfile
     ports:
       - 8082:8080
     networks: 
-      - test_bachelor
+      - bachelor
   laravel: 
     hostname: laravel
-    container_name: test_laravel
+    container_name: laravel
     build: 
-      context: ../backend/php
+      context: ./backend/php
       dockerfile: laravel/Dockerfile
     ports:
       - 8083:8000
     networks: 
-      - test_bachelor
+      - bachelor
   code-igniter: 
     hostname: code-igniter
-    container_name: test_code-igniter
+    container_name: code-igniter
     build: 
-      context: ../backend/php
+      context: ./backend/php
       dockerfile: code-igniter/Dockerfile
     ports:
       - 8084:8080
     networks: 
-      - test_bachelor
+      - bachelor
   express: 
     hostname: express
-    container_name: test_express
+    container_name: express
     build: 
-      context: ../backend/js
+      context: ./backend/js
       dockerfile: express/Dockerfile
     ports:
       - 8085:8080
     networks: 
-      - test_bachelor
+      - bachelor
   restify: 
     hostname: restify
-    container_name: test_restify
+    container_name: restify
     build: 
-      context: ../backend/js
+      context: ./backend/js
       dockerfile: restify/Dockerfile
     ports:
       - 8086:8080
     networks: 
-      - test_bachelor
+      - bachelor
   asp-net: 
     hostname: asp-net
-    container_name: test_asp-net
+    container_name: asp-net
     build: 
-      context: ../backend/csharp
+      context: ./backend/csharp
       dockerfile: asp-net/Dockerfile
     ports:
       - 8087:80
     networks: 
-      - test_bachelor
+      - bachelor
   flask: 
     hostname: flask
-    container_name: test_flask
+    container_name: flask
     build: 
-      context: ../backend/python
+      context: ./backend/python
       dockerfile: flask_app/Dockerfile
     ports:
       - 8088:5000
     networks: 
-      - test_bachelor
+      - bachelor
   django: 
     hostname: django
-    container_name: test_django
+    container_name: django
     build: 
-      context: ../backend/python
+      context: ./backend/python
       dockerfile: django/Dockerfile
     ports:
       - 8089:8000
     networks: 
-      - test_bachelor
+      - bachelor
+  frontend: 
+    hostname: frontend
+    container_name: frontend
+    build: 
+      context: ./frontend
+    ports:
+      - 8080:8080
 networks: 
-  test_bachelor:
+  bachelor:
 
 

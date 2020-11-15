@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/blog")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class Blog {
 
     PostDAO dao;
