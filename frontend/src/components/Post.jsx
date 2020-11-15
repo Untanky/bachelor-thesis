@@ -7,6 +7,7 @@ import ButtonLink from './ButtonLink';
 import './Post.scss';
 
 const Post = ( { post } ) => {
+
   return (
     <div className="post">
       <h2 className="post-title">{post.title}</h2>

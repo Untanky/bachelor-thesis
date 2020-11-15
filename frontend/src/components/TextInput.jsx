@@ -19,7 +19,7 @@ const TextInput = ({ label, placeholder, initialValue, onChange }) => {
         className="input-field"
         type="text"
         onChange={(evt) => onChange(evt.target.value)}
-        defaultValue={initialValue}
+        value={initialValue}
         placeholder={placeholder}
       />
     </div>

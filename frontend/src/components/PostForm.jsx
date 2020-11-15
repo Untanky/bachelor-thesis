@@ -11,6 +11,8 @@ const PostForm = ({ initialState, onChange }) => {
     onChange(key, value);
   }
 
+  console.log(initialState)
+
   return (
     <form className="post-form">
       <TextInput

@@ -1,15 +1,15 @@
 #!/bin/bash
 
 services=(
-  spring
-  jersey
+  # spring
+  # jersey
   laravel
-  code-igniter
-  express
-  restify
-  asp-net
-  django
-  flask
+  # code-igniter
+  # express
+  # restify
+  # asp-net
+  # django
+  # flask
 )
 
 for service in "${services[@]}"; do

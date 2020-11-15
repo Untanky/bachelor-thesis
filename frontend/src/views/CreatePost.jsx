@@ -33,6 +33,7 @@ const CreatePost = () => {
         Create post
       </h1>
       <PostForm 
+        initialState={formData}
         onChange={changeForm}
       />
       <div className="button-container">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Axios from 'axios';
@@ -21,16 +21,17 @@ const EditPost = () => {
   const [formData, setFormData] = useState(initialState)
   const { postId } = useParams();
 
-  Axios.get(`http://localhost:${port}/api/blog/post/${postId}`)
-    .then((res) => setFormData(res.data))
-    .catch((reason) => console.log(reason));
+  useEffect(() => {
+    Axios.get(`http://localhost:${port}/api/blog/post`)
+      .then((res) => setFormData(res.data.find((element) => element.id == postId)))
+      .catch((reason) => console.log(reason));
+  }, [port, postId, setFormData])
 
   const confirmClicked = () => {
     Axios.put(`http://localhost:${port}/api/blog/post/${postId}`, formData)
       .then(() => history.push('/'))
       .catch((reason) => console.log(reason));
   }
-
 
   const onChange = (key, value) => {
     setFormData({
