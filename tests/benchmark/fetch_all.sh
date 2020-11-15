@@ -19,8 +19,8 @@ do
   result=( $(curl --silent -o /dev/null -w "%{time_total} %{http_code}" http://localhost:$port/api/blog/post) )
   time=${result[0]}
   status=${result[1]}
-  if [ $status = $expectedStatus ]; then
-    if [ $x > $warmupRepititions ]; then
+  if [ $status -eq $expectedStatus ]; then
+    if [ $x -gt $warmupRepititions ]; then
       timeString="$timeString,$time"
     fi;
   else
