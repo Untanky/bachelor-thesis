@@ -34,6 +34,7 @@ class PostControllerTest extends \Codeception\Test\Unit {
 
         $actual = $postController->fetchAll();
 
+        $postList = json_encode($postList, JSON_UNESCAPED_SLASHES);
         $this->assertEquals($postList, $actual);
     }
 

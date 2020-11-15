@@ -1,47 +1,19 @@
-#start with our base image (the foundation) - version 7.1.5
-FROM php:7.4-apache
+FROM php:7.4-cli-alpine3.12
 
-#install all the system dependencies and enable PHP modules 
-RUN apt-get update && apt-get install -y \
-      postgresql-server-dev-all \
-      git \
-      zip \
-      unzip \
-    && rm -r /var/lib/apt/lists/* \
-    && docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
-    && docker-php-ext-install \
-      pgsql \
-      pdo_pgsql
+RUN set -ex \	
+  && apk --no-cache add \	
+    postgresql-dev	      
+RUN docker-php-ext-install pgsql pdo_pgsql
 
-#install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 
-#set our application folder as an environment variable
-ENV APP_HOME /var/www/html
+COPY ./dao /usr/src/dao
+WORKDIR /usr/src/dao
+RUN composer install
 
-#change uid and gid of apache to docker user uid/gid
-RUN usermod -u 1000 www-data && groupmod -g 1000 www-data
+COPY ./laravel /usr/src/laravel
+WORKDIR /usr/src/laravel
+RUN composer install
 
-#change the web_root to laravel /var/www/html/public folder
-RUN sed -i -e "s/html/html\/public/g" /etc/apache2/sites-enabled/000-default.conf
-
-# enable apache module rewrite
-RUN a2enmod rewrite
-
-COPY ./dao $APP_HOME/../dao
-
-WORKDIR $APP_HOME/../dao
-
-# install all PHP dependencies
-RUN composer install --no-interaction
-
-WORKDIR $APP_HOME
-
-#copy source files and run composer
-COPY ./laravel $APP_HOME
-
-# install all PHP dependencies
-RUN composer install --no-interaction
-
-#change ownership of our applications
-RUN chown -R www-data:www-data $APP_HOME
+EXPOSE 8000
+ENTRYPOINT [ "php", "artisan", "serve", "--host", "0.0.0.0" ]

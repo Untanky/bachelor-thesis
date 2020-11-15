@@ -33,17 +33,20 @@ class HandlerTest(TestCase):
       {
         'id': None,
         'title': "Post 1",
-        'description': "Test description"
+        'description': "Test description",
+        'url': "/post/None"
       },
       {
         'id': None,
         'title': "Post 2",
-        'description': "Test description"
+        'description': "Test description",
+        'url': "/post/None"
       },
       {
         'id': None,
         'title': "Post 3",
-        'description': "Test description"
+        'description': "Test description",
+        'url': "/post/None"
       }
     ]
 
@@ -78,7 +81,7 @@ class HandlerTest(TestCase):
     postDAO.update = MagicMock()
     postController = PostController(postDAO)
     request = Request({'id': self.updatedPost3.id, 'title': self.updatedPost3.title, 'description': self.updatedPost3.description })
-    updateId = self.updatedPost3.id
+    updateId = str(self.updatedPost3.id)
 
     response = postController.updatePost(updateId, request)
 
@@ -90,7 +93,7 @@ class HandlerTest(TestCase):
     postDAO.update = MagicMock()
     postController = PostController(postDAO)
     request = Request({'id': self.updatedPost3.id, 'title': self.updatedPost3.title, 'description': self.updatedPost3.description })
-    updateId = self.updatedPost3.id + 1
+    updateId = str((self.updatedPost3.id + 1))
 
     response = postController.updatePost(updateId, request)
 
@@ -102,7 +105,7 @@ class HandlerTest(TestCase):
     postDAO.update = MagicMock(side_effect=UnknownElementException())
     postController = PostController(postDAO)
     request = Request({'id': self.updatedPost3.id, 'title': self.updatedPost3.title, 'description': self.updatedPost3.description })
-    updateId = 3
+    updateId = "3"
 
     response = postController.updatePost(updateId, request)
 
@@ -114,7 +117,7 @@ class HandlerTest(TestCase):
     postDAO.delete = MagicMock()
     postController = PostController(postDAO)
     request = Request(None)
-    deleteId = 3
+    deleteId = "3"
 
     response = postController.deletePost(deleteId, request)
 

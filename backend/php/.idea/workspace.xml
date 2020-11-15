@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment=""/>
+    <list default="true" id="9277264c-8c72-47e4-af60-1179bf44b452" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code-igniter/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/code-igniter/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/tests/Unit/PostControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/tests/Unit/PostControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../python/django/rest/blog/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../python/django/rest/blog/tests.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -179,6 +186,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1598547110412</updated>
+      <workItem from="1605452225085" duration="577000" />
     </task>
     <servers />
   </component>

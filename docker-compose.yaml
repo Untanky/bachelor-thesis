@@ -40,7 +40,7 @@ services:
       context: ../backend/php
       dockerfile: laravel/Dockerfile
     ports:
-      - 8083:80
+      - 8083:8000
     networks: 
       - test_bachelor
   code-igniter: 
