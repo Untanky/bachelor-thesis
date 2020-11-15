@@ -8,25 +8,15 @@ exports[`renders correctly 1`] = `
     className="right-align"
   >
     <a
-      className="button-link"
+      className="button"
       href="/post/create"
       onClick={[Function]}
     >
       Create post
     </a>
-    <select
-      className="select-box"
-    >
-      <option>
-        Java - Spring
-      </option>
-      <option>
-        Java - JaxRS
-      </option>
-      <option>
-        C# - ASP.NET
-      </option>
-    </select>
+    <div>
+      false
+    </div>
   </span>
 </div>
 `;

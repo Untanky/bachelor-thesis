@@ -15,11 +15,11 @@ exports[`renders correctly with initial state 1`] = `
     </label>
     <input
       className="input-field"
-      defaultValue="Test title"
       id={0.5}
       onChange={[Function]}
       placeholder="Title"
       type="text"
+      value="Test title"
     />
   </div>
   <div
@@ -33,11 +33,11 @@ exports[`renders correctly with initial state 1`] = `
     </label>
     <input
       className="input-field"
-      defaultValue="Description might be longer than the title and contain more data"
       id={0.5}
       onChange={[Function]}
       placeholder="Description"
       type="text"
+      value="Description might be longer than the title and contain more data"
     />
   </div>
 </form>
@@ -58,11 +58,11 @@ exports[`renders correctly without initial state 1`] = `
     </label>
     <input
       className="input-field"
-      defaultValue=""
       id={0.5}
       onChange={[Function]}
       placeholder="Title"
       type="text"
+      value=""
     />
   </div>
   <div
@@ -76,11 +76,11 @@ exports[`renders correctly without initial state 1`] = `
     </label>
     <input
       className="input-field"
-      defaultValue=""
       id={0.5}
       onChange={[Function]}
       placeholder="Description"
       type="text"
+      value=""
     />
   </div>
 </form>

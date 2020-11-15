@@ -12,11 +12,11 @@ exports[`renders correctly with initial value 1`] = `
   </label>
   <input
     className="input-field"
-    defaultValue="Initial value"
     id={0.5}
     onChange={[Function]}
     placeholder="Placeholder"
     type="text"
+    value="Initial value"
   />
 </div>
 `;
@@ -33,11 +33,11 @@ exports[`renders correctly without initial value 1`] = `
   </label>
   <input
     className="input-field"
-    defaultValue=""
     id={0.5}
     onChange={[Function]}
     placeholder="Placeholder"
     type="text"
+    value=""
   />
 </div>
 `;

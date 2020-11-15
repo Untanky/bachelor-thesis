@@ -23,11 +23,11 @@ exports[`renders correctly 1`] = `
       </label>
       <input
         className="input-field"
-        defaultValue=""
         id={0.5}
         onChange={[Function]}
         placeholder="Title"
         type="text"
+        value=""
       />
     </div>
     <div
@@ -41,24 +41,27 @@ exports[`renders correctly 1`] = `
       </label>
       <input
         className="input-field"
-        defaultValue=""
         id={0.5}
         onChange={[Function]}
         placeholder="Description"
         type="text"
+        value=""
       />
     </div>
   </form>
   <div
     className="button-container"
   >
-    <button
+    <a
       className="button cancel"
+      href="/"
+      onClick={[Function]}
     >
       Cancel
-    </button>
+    </a>
     <button
-      className="button"
+      className="button default create-button"
+      onClick={[Function]}
     >
       Create
     </button>

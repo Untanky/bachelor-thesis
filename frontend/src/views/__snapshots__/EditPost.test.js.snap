@@ -24,11 +24,11 @@ exports[`renders correctly 1`] = `
       </label>
       <input
         className="input-field"
-        defaultValue="Test title"
         id={0.5}
         onChange={[Function]}
         placeholder="Title"
         type="text"
+        value="Test title"
       />
     </div>
     <div
@@ -42,11 +42,11 @@ exports[`renders correctly 1`] = `
       </label>
       <input
         className="input-field"
-        defaultValue="long description, bla bla blubb"
         id={0.5}
         onChange={[Function]}
         placeholder="Description"
         type="text"
+        value="long description, bla bla blubb"
       />
     </div>
   </form>
@@ -54,12 +54,8 @@ exports[`renders correctly 1`] = `
     className="button-container"
   >
     <button
-      className="button cancel"
-    >
-      Cancel
-    </button>
-    <button
-      className="button"
+      className="button default edit-button"
+      onClick={[Function]}
     >
       Confirm
     </button>
